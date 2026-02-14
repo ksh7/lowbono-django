@@ -1,0 +1,5 @@
+- name: Install & Setup Dokku
+  include_tasks: setup_dokku.yml
+
+- name: Enable IPv6
+  include_tasks: docker_ipv6.yml

@@ -1,0 +1,55 @@
+{% extends "lowbono_cms/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cms_tags sekizai_tags %}
+
+{% block content_bg_light_header %}
+  <header id="header" class="navbar navbar-expand-lg navbar-end navbar-light bg-white" hsheader="true">
+{% endblock %}
+
+{% block content_bg_light %}
+
+  <main id="content" role="main" class="bg-light">
+    <div class="navbar-dark bg-dark" style="background-image: url(./assets/svg/components/wave-pattern-light.svg);">
+      <div class="container content-space-1 content-space-b-lg-3">
+        <div class="row align-items-center">
+          <div class="col">
+            <div class="d-none d-lg-block">
+              <h1 class="h2 text-white"> {% placeholder "page_header_title" %}</h1>
+            </div>
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb breadcrumb-light mb-0">
+                <li class="breadcrumb-item active" aria-current="page"> {% placeholder "page_header_description" %}</li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container content-space-1 content-space-t-lg-0 content-space-b-lg-2 mt-lg-n10">
+      <div class="row">
+        <div class="col-lg-8">
+          <div class="d-grid gap-3 gap-lg-5">
+            <div class="card">
+              <div class="card-body">
+                {% placeholder "page_left_content" %}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="navbar-expand-lg navbar-light">
+            <div id="sidebarNav" class="collapse navbar-collapse navbar-vertical">
+              <div class="card flex-grow-1 mb-5">
+                <div class="card-body">
+                  {% placeholder "page_right_content" %}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+{% endblock %}

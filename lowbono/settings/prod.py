@@ -1,0 +1,14 @@
+import os
+
+from .dokku import *
+
+DEBUG = os.getenv('DEBUG_STATUS', 'False') == 'True'
+
+ALLOWED_HOSTS = ['lowbono.org', 'www.lowbono.org',]
+CSRF_TRUSTED_ORIGINS = ['https://lowbono.org', 'https://www.lowbono.org',]
+
+SUPABASE_STORAGE_BUCKET = 'lowbono-production'
+
+SLACK_BOT_OAUTH_TOKEN = os.getenv('SLACK_BOT_OAUTH_TOKEN')
+
+EMAIL_BACKEND = 'anymail.backends.sendinblue.EmailBackend'

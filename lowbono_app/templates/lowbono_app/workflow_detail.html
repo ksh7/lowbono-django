@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block heading %}Referral <a href="{% url 'referral-detail' id=object.referral.id %}">ID #{{object.referral.id}} {{object.referral.get_full_name}}</a> Workflow{% endblock %}
+
+{% block content %}
+
+<div class="overflow-auto">
+  {{ object.get_instance_graph_svg }}
+</div>
+
+<div class="card mb-5">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <p><span class="text-dark fw-semi-bold">Referral Workflow ID #{{ object.id }} tasks</span> <span class="text-dark fw-semi-bold"><a href="{{ object.get_override_url }}">Override Workflow</a></span>
+        <table class="table">
+          <thead class="thead">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Task Name</th>
+              <th scope="col">Completed</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for task in object.task_set.all %}
+              <tr>
+                <td>{{ task.pk }}</td>
+                <td>
+                  {% if task.get_absolute_url %}
+                  <a href="{{ task.get_absolute_url }}">
+                    {{ task.name }}
+                  </a>
+                  {% else %}
+                  {{ task.name }}
+                  {% endif %}
+                </td>
+                <td>{{ task.completed }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+          
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% load menu_tags %}
+
+{% for child in children %}
+{% if child.children %}
+<li class="nav-item dropdown">
+    <a id="{{ child.title | slugify }}-dropdown" class="nav-link dropdown-toggle " href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">{{ child.get_menu_title }}</a>
+    <div class="dropdown-menu" aria-labelledby="{{ child.title | slugify }}-dropdown" style="min-width: 14rem;">
+        {% show_menu from_level to_level extra_inactive extra_active template "" "" child %}
+    </div>
+</li>
+{% elif child.level == 1 %}
+<li class="nav-item">
+    <a class="nav-link" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" role="button">{{ child.get_menu_title }}</a>
+</li>
+{% else %}
+<a class="dropdown-item" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+{% endif %}
+{% endfor %}

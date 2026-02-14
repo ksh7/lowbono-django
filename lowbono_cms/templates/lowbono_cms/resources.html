@@ -1,0 +1,33 @@
+{% extends "lowbono_cms/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cms_tags sekizai_tags %}
+
+{% block content %}
+<div class="container content-space-t-2">
+  <div class="w-lg-75 text-center mx-lg-auto">
+    <div class="mb-5 mb-md-10 mt-10">
+      <h2>Other Resources</h2>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      {% placeholder 'resource_description' %}
+      {% placeholder 'resource_card' %}
+    </div>
+    <div class="col-lg-4">
+      <a href="https://docs.google.com/document/d/19myHzKtVqpaZKy9Vl8fZOvKNmAvQonwxTyYuT-pKH_8/export?format=pdf" class="btn btn-outline-primary">Download PDF Flyer <i class="bi bi-file-earmark-pdf"></i></a>
+      <a href="https://docs.google.com/document/d/1SWeBTTim3WmTGji4q7kCZBVTjvDVPzseKo6Ika-EZ0M/export?format=pdf" class="btn btn-outline-primary my-2">Descargas folleto en pdf <i class="bi bi-file-earmark-pdf"></i></a>
+      <div class="card card-bordered" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'lowbono_cms/assets/img/general-contact-sample.png' %}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">DC Refers is an online listing of qualified lawyers and mediators who are willing to represent modest-means clients at below-market rates.</p>
+          <a href="/lawyers/1" class="btn btn-success">Find a lawyer <i class="bi bi-arrow-right"></i></a>
+          <a href="/mediators/1" class="btn btn-secondary mt-2">Find a mediator <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}

@@ -1,0 +1,7 @@
+- name: Server Security Setup
+  hosts: web_server
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: security_setup

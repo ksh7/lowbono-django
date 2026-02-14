@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+{% block content %}
+
+{% if overdue_matters %}
+  <div class="alert alert-soft-secondary alert-dismissible fade show" role="alert">
+    <strong>Instructions:</strong> To update all matters in a given status use this page. Selecting "Update" will open the matter in a new window and allow you to update the status. If there is no change to the case status, select "no update." This will sync the date of last update on your cases reducing the amount of emails you receive from DC Refers.
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+  <div class="card">
+    <div class="card-body">
+      <h3 class="card-title">All Overdue Matters - {{current_node_pretty_name}}</h3>
+      <p class="card-text">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Client Name</th>
+              <th scope="col">Current Status</th>
+              <th scope="col">Last Updated</th>
+              <th scope="col">No Update</th>
+              <th scope="col">Update Report</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for referral in overdue_matters %}
+              <tr id="overdue-{{referral.id}}">
+                <td><a href="{% url 'referral-detail' id=referral.id %}">{{ referral.last_name }}, {{ referral.first_name }}</a></td>
+                <td>{{ referral.referrallawyerworkflowstate.get_current_task_pretty_name }}</td>
+                <td>{{referral.referrallawyerworkflowstate.human_last_updated_at|pretty_date_bulk_update_template}}</td>
+                <td><button hx-get="{% url 'lawyer-workflow-no-update' %}" hx-target="#overdue-{{referral.id}}" hx-swap="innerHTML" hx-vals='{"workflow_id": "{{referral.referrallawyerworkflowstate.id}}"}' class="btn btn-soft-info btn-xs"><i class="bi-arrow-repeat"></i> No Update</button></td>
+               <td>
+                  {% if referral.referrallawyerworkflowstate.workflow_task_update_url %}
+                    <a href="{{ referral.referrallawyerworkflowstate.workflow_task_update_url }}?next=list" target="_blank">Update <i class="bi-box-arrow-up-right"></i></a>
+                  {% endif %}
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </p>
+    </div>
+  </div>
+{% endif %}
+
+
+{% if not overdue_matters %}
+No referrals that require an update. Check again later!
+{% endif %}
+
+
+{% endblock %}

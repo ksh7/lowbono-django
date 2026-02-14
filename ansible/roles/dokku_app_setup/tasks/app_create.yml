@@ -1,0 +1,13 @@
+- name: Check if Dokku app exists
+  shell: "dokku apps:list | grep -w {{ web_app_name }}"
+  register: app_exists_check
+  changed_when: false
+  failed_when: false
+
+- name: Create Dokku app
+  shell: "dokku apps:create {{ web_app_name }}"
+  register: app_create_result
+  failed_when:
+    - app_create_result.rc != 0
+    - "'already taken' not in app_create_result.stderr"
+  when: app_exists_check.rc != 0

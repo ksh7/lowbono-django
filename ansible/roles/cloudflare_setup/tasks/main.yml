@@ -1,0 +1,2 @@
+- name: Setup Cloudflare Tunnel
+  include_tasks: setup_cloudflare.yml

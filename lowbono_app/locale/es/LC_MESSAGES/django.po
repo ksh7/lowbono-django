@@ -1,0 +1,542 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-05-24 16:55+0530\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:61
+msgid "Public Profile"
+msgstr "Perfil público"
+
+#: admin.py:70
+msgid "Permissions"
+msgstr "permisos"
+
+#: admin.py:74
+msgid "Important dates"
+msgstr "Fechas importantes"
+
+#: constants.py:8
+msgid "Please contact me."
+msgstr "Por favor póngase en contacto conmigo."
+
+#: constants.py:9
+msgid "I will contact the Lawyer/Mediator."
+msgstr "Me pondré en contacto con el Abogado/Mediador."
+
+#: constants.py:13
+msgid "ELIGIBLE - Less than 200% FMW"
+msgstr "ELEGIBLE - Menos del 200% FMW"
+
+#: constants.py:14
+msgid "ELIGIBLE - 200% to 400% FMW"
+msgstr "ELEGIBLE - 200% a 400% FMW"
+
+#: constants.py:15
+msgid "INELIGIBLE - More than 400% FMW"
+msgstr "NO ELEGIBLE - Más del 400% FMW"
+
+#: constants.py:19
+msgid "Low Income"
+msgstr "De bajos ingresos"
+
+#: constants.py:20
+msgid "Moderate Income"
+msgstr "Ingreso moderado"
+
+#: constants.py:21
+msgid "High Income"
+msgstr "Altos ingresos"
+
+#: constants.py:25 constants.py:89
+msgid "Washington Legal Clinic for the Homeless"
+msgstr "Clínica Legal de Washington para personas sin hogar"
+
+#: constants.py:26 constants.py:88
+msgid "The Legal Aid Society of the District of Columbia"
+msgstr "La Sociedad de Ayuda Legal del Distrito de Columbia"
+
+#: constants.py:27 constants.py:87
+msgid "Legal Counsel for the Elderly"
+msgstr "Asesoramiento Jurídico de la Tercera Edad"
+
+#: constants.py:28 constants.py:86
+msgid "DC Volunteer Lawyers Project"
+msgstr "Proyecto de Abogados Voluntarios de DC"
+
+#: constants.py:29 constants.py:85
+msgid "DC Affordable Law Firm"
+msgstr "Bufete de abogados asequible de DC"
+
+#: constants.py:30
+msgid "Children's Law Center"
+msgstr "Centro de derecho infantil"
+
+#: constants.py:31 constants.py:83
+msgid "Bread for the City"
+msgstr "pan para la ciudad"
+
+#: constants.py:32 constants.py:81
+msgid "Government agency"
+msgstr "Agencia del gobierno"
+
+#: constants.py:33 constants.py:80
+msgid "Friend or family"
+msgstr "amigo o familia"
+
+#: constants.py:34 constants.py:79
+msgid "Community organization"
+msgstr "Organización de la comunidad"
+
+#: constants.py:35 constants.py:78
+msgid "Flyer or print advertisement"
+msgstr "Folleto o anuncio impreso"
+
+#: constants.py:36 constants.py:77
+msgid "Web advertisement"
+msgstr "publicidad web"
+
+#: constants.py:37 constants.py:76
+msgid "Web search"
+msgstr "búsqueda Web"
+
+#: constants.py:38 constants.py:82
+msgid "Other"
+msgstr "Otro"
+
+#: constants.py:42
+msgid "1 person"
+msgstr "1 persona"
+
+#: constants.py:43
+msgid "2 people"
+msgstr "2 personas"
+
+#: constants.py:44
+msgid "3 people"
+msgstr "3 personas"
+
+#: constants.py:45
+msgid "4 people"
+msgstr "4 personas"
+
+#: constants.py:46
+msgid "5 people"
+msgstr "5 personas"
+
+#: constants.py:47
+msgid "6 people"
+msgstr "6 personas"
+
+#: constants.py:48
+msgid "7 people"
+msgstr "7 personas"
+
+#: constants.py:52
+msgid "Court hearing"
+msgstr "Audiencia judicial"
+
+#: constants.py:53
+msgid "Filing deadline"
+msgstr "Plazo de presentación"
+
+#: constants.py:54
+msgid "Statute of limitations"
+msgstr "Estatuto de limitaciones"
+
+#: constants.py:55
+msgid "Response due"
+msgstr "Respuesta pendiente"
+
+#: constants.py:56
+msgid "Other/Don't know"
+msgstr "Otro / No se"
+
+#: constants.py:59
+msgid ""
+"If you request a consultation, do you give the lawyer permission to contact "
+"you?"
+msgstr ""
+"Si solicita una consulta, ¿le da permiso al abogado para que se comunique "
+"con usted?"
+
+#: constants.py:62
+msgid "Yes, they may contact me"
+msgstr "Sí, ellos pueden contactarme"
+
+#: constants.py:63
+msgid "No, do not contact me"
+msgstr "No, no me contactes"
+
+#: constants.py:66
+msgid ""
+"May we follow up with you about your request (for example, with a request "
+"summary and survey)"
+msgstr ""
+"¿Podemos hacer un seguimiento con usted acerca de su solicitud (por ejemplo, "
+"con un resumen de la solicitud y una encuesta)"
+
+#: constants.py:69
+msgid "Yes"
+msgstr "Sí"
+
+#: constants.py:70
+msgid "No"
+msgstr "No"
+
+#: constants.py:73
+msgid "How did you hear about us?"
+msgstr "¿Como supiste de nosotros?"
+
+#: constants.py:84
+msgid "Children’s Law Center"
+msgstr "Centro de derecho infantil"
+
+#: constants.py:93
+msgid "January"
+msgstr "enero"
+
+#: constants.py:94
+msgid "February"
+msgstr "Febrero"
+
+#: constants.py:95
+msgid "March"
+msgstr "Marzo"
+
+#: constants.py:96
+msgid "April"
+msgstr "Abril"
+
+#: constants.py:97
+msgid "May"
+msgstr "Puede"
+
+#: constants.py:98
+msgid "June"
+msgstr "Junio"
+
+#: constants.py:99
+msgid "July"
+msgstr "Julio"
+
+#: constants.py:100
+msgid "August"
+msgstr "Agosto"
+
+#: constants.py:101
+msgid "September"
+msgstr "Septiembre"
+
+#: constants.py:102
+msgid "October"
+msgstr "Octubre"
+
+#: constants.py:103
+msgid "November"
+msgstr "Noviembre"
+
+#: constants.py:104
+msgid "December"
+msgstr "Diciembre"
+
+#: constants.py:109
+msgid "Washington D.C. metropolitan area"
+msgstr "área metropolitana de Washington DC"
+
+#: constants.py:110
+msgid "Somewhere else"
+msgstr "En algún otro lugar"
+
+#: constants.py:115
+msgid "Lawyer"
+msgstr "Abogado"
+
+#: constants.py:116
+msgid "Mediator"
+msgstr "Mediador"
+
+#: forms.py:14
+msgid "Location?"
+msgstr "¿Localización?"
+
+#: forms.py:18
+msgid ""
+"Outside coverage area: LowBono cannot connect you with Lawyers outside of "
+"the Washington D.C. metropolitan area."
+msgstr ""
+"Fuera del área de cobertura: LowBono no puede conectarlo con abogados fuera "
+"del área metropolitana de Washington D.C."
+
+#: forms.py:22
+msgid "Household size"
+msgstr "Tamaño del hogar"
+
+#: forms.py:23
+msgid "Monthly household income ($)"
+msgstr "Ingreso familiar mensual ($)"
+
+#: forms.py:27 forms.py:34 steps.py:277
+msgid "What do you need help with?"
+msgstr "Con qué necesitas ayuda?"
+
+#: forms.py:38 steps.py:284
+msgid "Can you tell us more about your issue?"
+msgstr "¿Puedes contarnos más sobre tu problema?"
+
+#: forms.py:42
+msgid "when"
+msgstr "cuando"
+
+#: forms.py:43
+msgid "what"
+msgstr "qué"
+
+#: forms.py:47 steps.py:299
+msgid "Briefly describe your legal issue"
+msgstr "Describa brevemente su problema legal"
+
+#: forms.py:51 steps.py:310
+msgid "Who would you like to have a consultation with?"
+msgstr "¿Con quién te gustaría tener una consulta?"
+
+#: forms.py:58
+msgid "First name"
+msgstr "Primer nombre"
+
+#: forms.py:59
+msgid "Last name"
+msgstr "Apellido"
+
+#: forms.py:60 templates/lowbono_app/login.html:12
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: forms.py:61
+msgid "Phone"
+msgstr "Teléfono"
+
+#: forms.py:62
+msgid "Your Language"
+msgstr "Tu lenguaje"
+
+#: forms.py:63
+msgid "Address"
+msgstr "Dirección"
+
+#: forms.py:64
+msgid "Zipcode"
+msgstr "Código postal"
+
+#: forms.py:67
+msgid "Referred By"
+msgstr "Referido por"
+
+#: models.py:53 models.py:137
+msgid "email address"
+msgstr "dirección de correo electrónico"
+
+#: models.py:54
+msgid "username"
+msgstr "nombre de usuario"
+
+#: models.py:56 models.py:135
+msgid "first name"
+msgstr "primer nombre"
+
+#: models.py:57 models.py:136
+msgid "last name"
+msgstr "apellido"
+
+#: steps.py:15 steps.py:240
+msgid "Continue"
+msgstr "Continuar"
+
+#: steps.py:213
+msgid "Where do you need a lawyer?"
+msgstr "¿Dónde necesitas un abogado?"
+
+#: steps.py:218 steps.py:234
+msgid "Do you want to see if you qualify for reduced fees?"
+msgstr "¿Quiere ver si califica para tarifas reducidas?"
+
+#: steps.py:220 steps.py:236
+msgid ""
+"Some lawyers charge reduced rates depending on your income bracket, which is "
+"based on your household size and income. The final determination on reduced "
+"fee eligibility will be made by the lawyer."
+msgstr ""
+"Algunos abogados cobran tarifas reducidas según su nivel de ingresos, que se "
+"basa en el tamaño de su hogar y sus ingresos. La determinación final sobre "
+"la elegibilidad de tarifa reducida la hará el abogado."
+
+#: steps.py:222 steps.py:239 steps.py:278 steps.py:285 steps.py:292
+#: steps.py:303 steps.py:311 steps.py:318
+msgid "back"
+msgstr "espalda"
+
+#: steps.py:223
+msgid "I want to see if I qualify"
+msgstr "quiero ver si califico"
+
+#: steps.py:224 steps.py:293 steps.py:304
+msgid "skip"
+msgstr "saltear"
+
+#: steps.py:226 steps.py:242
+msgid "What income brackets qualify for reduced fees?"
+msgstr "¿Qué tramos de ingresos califican para tarifas reducidas?"
+
+#: steps.py:227 steps.py:243
+#, python-format
+msgid ""
+"Reduced fees may be available to people with incomes at or below 400.0% of "
+"the <a href=\"https://aspe.hhs.gov/poverty-guidelines\">Federal Poverty "
+"Guidelines</a>."
+msgstr ""
+"Las tarifas reducidas pueden estar disponibles para personas con ingresos "
+"iguales o inferiores al 400,0 % de las <a href=\"https://aspe.hhs.gov/"
+"poverty-guidelines\">Federal Poverty Guidelines</a>."
+
+#: steps.py:238
+msgid "Update estimate"
+msgstr "Actualizar estimación"
+
+#: steps.py:247
+msgid ""
+"Based on the information you provided, you qualify for reduced rates from "
+"lawyers who scale their fees. Click Next to continue."
+msgstr ""
+"Según la información que proporcionó, califica para tarifas reducidas de "
+"abogados que escalan sus honorarios. Haga clic en Siguiente para continuar."
+
+#: steps.py:248
+msgid ""
+"Based on the information you provided, you may qualify for free legal "
+"assistance. To find organizations that provide additional assistance, you "
+"can visit <a href=\"www.lawhelp.org/dc\"></a>www.lawhelp.org/dc</a>. You may "
+"also qualify for help from lawyers who charge reduced fees. If you would "
+"like to connect with a lawyer who charges fees, click Next."
+msgstr ""
+"Según la información que proporcionó, puede calificar para recibir "
+"asistencia legal gratuita. Para encontrar organizaciones que brindan "
+"asistencia adicional, puede visitar <a href=\"www.lawhelp.org/dc\"></a>www."
+"lawhelp.org/dc</a>. También puede calificar para recibir ayuda de abogados "
+"que cobran tarifas reducidas. Si desea conectarse con un abogado que cobra "
+"honorarios, haga clic en Siguiente."
+
+#: steps.py:249
+msgid ""
+"Based on the information you provided, you qualify for market rates. Click "
+"Next to continue."
+msgstr ""
+"Según la información que proporcionó, califica para las tasas de mercado. "
+"Haga clic en Siguiente para continuar."
+
+#: steps.py:291
+msgid "Do you have any court appearances or other deadlines coming up?"
+msgstr "¿Tiene próximas comparecencias ante el tribunal u otros plazos?"
+
+#: steps.py:301
+msgid ""
+"Tell the lawyer about your legal issue and any opposing parties that are "
+"involved in the matter. Please do not provide any sensitive or confidential "
+"information here -- those details should only be discussed during your "
+"consultation with the lawyer."
+msgstr ""
+"Infórmele al abogado sobre su problema legal y cualquier parte contraria que "
+"esté involucrada en el asunto. No proporcione ninguna información sensible o "
+"confidencial aquí; esos detalles solo deben discutirse durante su consulta "
+"con el abogado."
+
+#: steps.py:317
+msgid "Request info"
+msgstr "Solicitar información"
+
+#: steps.py:319
+msgid "Request a consultation"
+msgstr "Solicitar una consulta"
+
+#: steps.py:324
+msgid "Success"
+msgstr "Éxito"
+
+#: steps.py:325
+msgid "Let us know"
+msgstr "Haznos saber"
+
+#: steps.py:326
+msgid "Done! Redirect to main page"
+msgstr "¡Hecho! Redirigir a la página principal"
+
+#: steps.py:328
+msgid ""
+"We recommend that you reach out to TEST Lawyer to arrange your "
+"consultation."
+msgstr ""
+"Le recomendamos que se comunique con TEST Abogado para programar su consulta."
+
+#: steps.py:329
+msgid "Attoney Name"
+msgstr "Nombre del abogado"
+
+#: steps.py:330
+msgid "123456"
+msgstr ""
+
+#: steps.py:334
+msgid ""
+"If you require an additional referral, you may try submitting another "
+"request at a later date.<br>We have emailed you a copy of your request "
+"summary. You can also print the summary below for your records."
+msgstr "Si necesita una referencia adicional, puede intentar enviar otra solicitud en una fecha posterior.<br>Le hemos enviado por correo electrónico una copia del resumen de su solicitud. También puede imprimir el resumen a continuación para sus registros."
+
+#: templates/lowbono_app/home.html:7
+msgid "Find an Affordable Lawyer"
+msgstr "Encuentra una abogada asequible"
+
+#: templates/lowbono_app/home.html:8
+msgid ""
+"Qualified lawyers who're willing to represent modest-means clients at "
+"below-market rates."
+msgstr ""
+"Abogados calificados que están dispuestos a representar a clientes con "
+"medios modestos a tarifas por debajo del mercado."
+
+#: templates/lowbono_app/home.html:9
+msgid "Find a lawyer"
+msgstr "Encontrar un abogado"
+
+#: templates/lowbono_app/login.html:16
+msgid "Password"
+msgstr "Clave"
+
+#: templates/lowbono_app/navbar.html:23
+msgid "Find Lawyers"
+msgstr "Encuentre Abogados"
+
+#: templates/lowbono_app/navbar.html:24
+msgid "About Us"
+msgstr "Sobre nosotros"
+
+#: templates/lowbono_app/navbar.html:32
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: templates/lowbono_app/navbar.html:34
+msgid "Login"
+msgstr "Acceso"

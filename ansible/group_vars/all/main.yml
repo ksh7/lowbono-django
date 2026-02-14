@@ -1,0 +1,15 @@
+server_ip: "{{ server_ip }}"
+server_username: "{{ server_username }}"
+
+# Dokku configs
+dokku_version: "v0.35.20"
+server_user_dir: "/home/{{server_username}}"
+
+# Server config
+system_packages:
+  - python3-dev
+  - libpq-dev
+  - build-essential
+  - graphviz
+  - curl
+  - git

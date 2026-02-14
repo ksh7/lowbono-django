@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+{% block content %}
+
+{% if referral_workflow.is_overdue %}
+  <div class="alert alert-soft-danger" role="alert">
+    Warning! This matter is long overdue! Please, <a href="{{referral_workflow.workflow_task_update_url}}" class="alert-link">click to update report</a>
+  </div>
+{% endif %}
+
+<div class="card mb-5">
+  <div class="card-body">
+    <p><span class="text-dark fw-semi-bold">Client & Matter Details ({{professional_type}})</span></p>
+    <div class="row">
+      <div class="col-md-12">
+        {% include 'lowbono_app/referral_detail_base.html' %}
+        {% with template_name=template %}
+          {% include template_name %}
+        {% endwith %}
+      </div>
+    </div>
+  </div>
+</div>
+
+{% include 'lowbono_app/referral_detail_logs.html' %}
+
+{% endblock %}

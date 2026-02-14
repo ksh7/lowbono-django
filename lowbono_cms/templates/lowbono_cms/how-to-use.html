@@ -1,0 +1,86 @@
+{% extends "lowbono_cms/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cms_tags sekizai_tags %}
+
+{% block content %}
+<div class="container content-space-t-2">
+  <div class="w-lg-75 text-center mx-lg-auto">
+    <div class="mb-5 mb-md-10 mt-10">
+      <h2>How to Search DC Refers</h2>
+      <p>DC Refers is an online directory of lawyers and mediators who are willing to accept modest means clients (incomes within 200-400% of the federal poverty guidelines). If they accept your case, the lawyers and mediators will charge modest means clients reduced fee rates of between $75-150 per hour. The lawyers and mediators may charge their usual rates to clients with higher incomes.</p>
+      <p>DC Refers cannot guarantee that you will find a lawyer or mediator for your case. Lawyers and mediators may decide not to accept your case for any reason. DC Refers does not provide legal services of any kind and does not receive any money for referrals to the lawyers or mediators listed in our directory.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="accordion mb-10" id="accordionExample">
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingOne">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            How do I find a lawyer using DC Refers?
+            </a>
+          </div>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>The lawyers in our directory have agreed to charge lower fees to help people with moderate incomes. We do not guarantee that the lawyers you contact will represent you. The directory is simply a list of lawyers that you may contact to seek representation.</p>
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingTwo">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            After I find a lawyer I want to contact, what should I do next?
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+            <ol>
+              <li>Contact the lawyer. If you find a lawyer who has experience in the area of law you need help with, you simply click the "Select" button on their profile, fill out the contact form, and submit your consultation request. The two of you can then talk by phone or email to see if the lawyer will represent you.</li>
+              <li>Set up a meeting or call. Some lawyers may offer a free meeting or phone call to learn about your case. Other lawyers may charge a fee for your first meeting. You should ask the lawyer if he or she charges fees for first meetings. The lawyer will ask questions to learn about your case. The lawyer also will want to see any documents about your case. The lawyer will ask about your income to see if you qualify for reduced fee services. You may need to show proof of your income, such as a pay stub.</li>
+              <li>Decide whether to hire this lawyer. The lawyer will decide if he or she can accept your case, and you will decide if you want to hire this lawyer. The lawyer you contact does not have to accept your case. The lawyer must decide if your case is right for them. And, you must decide if the lawyer is the right person to handle your case. You should use your own judgement in deciding to hire a particular lawyer. You can find more information about how to hire a lawyer on the <a href="https://www.dcbar.org/for-the-public/hiring-a-lawyer.cfm" target="_blank">D.C. Bar's website</a></li>
+              <li>Sign a retainer agreement. If you decide to hire the lawyer, you and the lawyer must come to an agreement about what work the lawyer will do for you, and how much you will pay the lawyer. You and the lawyer may sign a contract, called a retainer, that explains what work the lawyer will do, and how much you will pay the lawyer. Any retainer signed is solely between you and the lawyer, and you are responsible for paying the lawyer for the work the lawyer does.</li>
+            </ol>
+            <p>DC Refers does not receive any money for referrals to lawyers listed in the directory.</p> 
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingThree">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              Who are the lawyers on DC Refers?
+            </a>
+          </div>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Lawyers in our directory must:</p>
+              <ul>
+                <li>be members in good standing of the D.C. Bar or the appropriate Federal Bar,</li>
+                <li>maintain malpractice insurance,</li>
+                <li>have at least two years of relevant legal experience, and</li>
+                <li>submit an online application that includes both professional and client references that are checked by DC Refers.</li>
+              </ul>
+              <p>All lawyers participating in DC Refers are willing to represent individuals of modest means at reduced fee rates.</p>
+              <p>DC Refers screens all lawyers to ensure that they meet these criteria. However, we do not guarantee the outcome of any case or that you will find a lawyer who is a good match for your case.</p>
+              <p>DC Refers will check in from time to time with clients who use our service and with lawyers participating in the service. We will ask if clients are satisfied with the legal services they received.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <a href="https://docs.google.com/document/d/19myHzKtVqpaZKy9Vl8fZOvKNmAvQonwxTyYuT-pKH_8/export?format=pdf" class="btn btn-outline-primary">Download PDF Flyer <i class="bi bi-file-earmark-pdf"></i></a>
+      <a href="https://docs.google.com/document/d/1SWeBTTim3WmTGji4q7kCZBVTjvDVPzseKo6Ika-EZ0M/export?format=pdf" class="btn btn-outline-primary my-2">Descargas folleto en pdf <i class="bi bi-file-earmark-pdf"></i></a>
+      <div class="card card-bordered" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'lowbono_cms/assets/img/general-contact-sample.png' %}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">DC Refers is an online listing of qualified lawyers and mediators who are willing to represent modest-means clients at below-market rates.</p>
+          <a href="/lawyers/1" class="btn btn-success">Find a lawyer <i class="bi bi-arrow-right"></i></a>
+          <a href="/mediators/1" class="btn btn-secondary mt-2">Find a mediator <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}

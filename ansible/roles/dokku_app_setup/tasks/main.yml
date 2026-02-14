@@ -1,0 +1,17 @@
+- name: App Create
+  include_tasks: app_create.yml
+
+- name: App Config
+  include_tasks: app_config.yml
+
+- name: App Environment Variables Config
+  include_tasks: app_env_config.yml
+
+- name: Redis Plugin Install
+  include_tasks: redis_install.yml
+
+- name: Redis App Create
+  include_tasks: redis_create.yml
+
+- name: Redis Web App Link
+  include_tasks: redis_link.yml

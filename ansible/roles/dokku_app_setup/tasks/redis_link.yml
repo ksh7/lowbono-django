@@ -1,0 +1,15 @@
+
+- name: Check if Redis is linked to app
+  shell: "dokku redis:info {{ redis_app_name }} | grep 'Links:'"
+  register: redis_link_check
+  changed_when: false
+  failed_when: false
+
+- name: Link Redis to Django app
+  shell: "dokku redis:link {{ redis_app_name }} {{ web_app_name }}"
+  register: redis_link_result
+  failed_when:
+    - redis_link_result.rc != 0
+    - "'already linked' not in redis_link_result.stderr"
+  when: 
+    - web_app_name not in redis_link_check.stdout

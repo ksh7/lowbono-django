@@ -1,0 +1,37 @@
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-title">{{matter_type}}</h3>
+    <p class="card-text">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Client Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Received On</th>
+            <th scope="col">Last Updated</th>
+            <th scope="col">Current Status</th>
+            <th scope="col">Report</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for workflow in matters %}
+            <tr>
+              <td><a href="{% url 'referral-detail' id=workflow.referral.id %}">{{ workflow.referral.last_name }}, {{ workflow.referral.first_name }}</a></td>
+              <td><a href="mailto:{{ workflow.referral.email }}">Email Client</a></td>
+              <td>{{workflow.referral.created_at | date:"M d, Y"}}</td>
+              <td>{{workflow.human_last_updated_at | date:"M d, Y"}}</td>
+              <td>{{workflow.get_current_task_pretty_name}}</td>
+              <td>
+                {% if workflow.workflow_task_update_url %}
+                  <a href="{{ workflow.workflow_task_update_url }}?next=list">Update</a></td>
+                {% else %}
+                  -
+                {% endif %}
+              </td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </p>
+  </div>
+</div>

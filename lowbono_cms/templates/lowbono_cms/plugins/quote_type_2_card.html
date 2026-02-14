@@ -1,0 +1,51 @@
+{% load static %}
+<div class="overflow-hidden">
+  <div class="position-relative bg-dark rounded-2 mx-3 mx-md-10">
+    <div class="container content-space-1 content-space-md-2 content-space-lg-3 position-relative zi-2">
+      <figure class="w-md-75 text-center mx-md-auto">
+        <div class="mb-3">
+          {% if instance.title %}
+          <span class="text-cap text-white-70">{{instance.title}}</span>
+          {% endif %}
+          {% if instance.brand_image %}
+          <img class="avatar avatar-xl avatar-4x3 mb-5" src="{{ instance.brand_image.url }}" alt="Logo">
+          {% endif %}
+        </div>
+
+        <blockquote class="blockquote blockquote-light mb-5">"{{instance.quote|safe}}"</blockquote>
+
+        {% if instance.person_image %}
+        <img class="avatar avatar-circle" src="{{ instance.person_image.url }}" alt="{{instance.person_name|safe}}">
+        {% endif %}
+
+        <figcaption class="blockquote-footer blockquote-light">
+          {{instance.person_name|safe}}
+          <span class="blockquote-footer-source">{{instance.person_designation|safe}}</span>
+        </figcaption>
+      </figure>
+
+      <figure class="position-absolute top-50 start-50 translate-middle zi-n1 mb-10">
+        <svg width="400" height="400" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M13.5001 5.84998C9.0001 7.64998 5.4001 12.15 5.4001 16.2C5.4001 17.1 5.4001 18 5.8501 18.45C6.7501 17.55 8.1001 17.1 9.9001 17.1C13.5001 17.1 16.6501 19.8 16.6501 23.85C16.6501 27.9 13.5001 30.6 9.9001 30.6C6.3001 31.05 4.5001 29.7 3.1501 27.45C1.8001 25.2 1.3501 22.05 1.3501 20.25C1.3501 13.05 4.9501 7.19998 12.6001 3.59998L13.5001 5.84998ZM31.9501 5.84998C27.4501 7.64998 23.8501 12.15 23.8501 16.2C23.8501 17.1 23.8501 18 24.3001 18.45C25.2001 17.55 26.5501 17.1 28.3501 17.1C31.9501 17.1 35.1001 19.8 35.1001 23.85C35.1001 27.9 31.9501 30.6 28.3501 30.6C25.2001 30.6 23.4001 29.25 22.0501 27C19.8001 25.2 19.8001 22.05 19.8001 20.25C19.8001 13.05 23.4001 7.19998 31.0501 3.59998L31.9501 5.84998Z"
+            fill="white" opacity=".025" />
+        </svg>
+      </figure>
+
+      <figure class="position-absolute top-0 start-0 mt-10 ms-10">
+        <svg width="70" height="70" opacity=".5" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M60.6655 74.9992C80.4557 74.9992 96.4988 58.9561 96.4988 39.1659C96.4988 19.3757 80.4557 3.33252 60.6655 3.33252C40.8753 3.33252 24.8322 19.3757 24.8322 39.1659C24.8322 58.9561 40.8753 74.9992 60.6655 74.9992Z"
+            stroke="white" stroke-width="5" stroke-miterlimit="10" />
+          <path
+            d="M158.5 197.5C168.165 197.5 176 189.665 176 180C176 170.335 168.165 162.5 158.5 162.5C148.835 162.5 141 170.335 141 180C141 189.665 148.835 197.5 158.5 197.5Z"
+            stroke="white" stroke-width="5" stroke-miterlimit="10" />
+        </svg>
+      </figure>
+
+      <figure class="position-absolute bottom-0 end-0 mb-n7 me-n7" style="width: 10rem;">
+        <img class="img-fluid" src="{% static './lowbono_cms/assets/svg/components/dots.svg' %}" alt="Image Description">
+      </figure>
+    </div>
+  </div>
+</div>

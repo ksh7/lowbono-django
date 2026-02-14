@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% block heading %}
+<h4>Please wait while the AI selects a suitable category as per your description.</h4>
+<p class="d-inline-flex">This may take several seconds... <div class="spinner-border spinner-border-sm ml-2" role="status"></div></p>
+{% endblock %}
+{% block content %}
+<script>
+  (function () {
+    setTimeout(function () {
+      window.location.reload();
+    }, 2000);
+  })()
+</script>
+{% endblock %}

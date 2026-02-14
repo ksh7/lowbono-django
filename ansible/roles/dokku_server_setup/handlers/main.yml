@@ -1,0 +1,11 @@
+- name: cleanup dokku bootstrap
+  file:
+    path: "{{ dokku.bootstrap_script_path }}"
+    state: absent
+
+- name: restart docker
+  systemd:
+    name: docker
+    state: restarted
+    daemon_reload: yes
+  become: yes

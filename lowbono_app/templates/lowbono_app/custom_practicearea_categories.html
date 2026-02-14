@@ -1,0 +1,38 @@
+{% include 'lowbono_app/practicearea_icons.html' %}
+{% with id=widget.attrs.id %}
+  <div{% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}>
+    <div class="row gx-3 mx-n2">
+      {% for group, options, index in widget.optgroups|slice:":9" %}
+        {% if group %}
+          <div><label>{{ group }}</label>
+        {% endif %}
+
+        {% for option in options %}
+          <div class="col-sm-6 col-md-4 mb-1">
+            {% include option.template_name with widget=option %}
+          </div>
+        {% endfor %}
+
+        {% if group %}
+          </div>
+        {% endif %}
+      {% endfor %}
+      <span class="my-3"></span>
+      {% for group, options, index in widget.optgroups|slice:"9:" %}
+        {% if group %}
+          <div><label>{{ group }}</label>
+        {% endif %}
+
+        {% for option in options %}
+          <div class="col-sm-6 col-md-3 mb-1">
+            {% include option.template_name with widget=option %}
+          </div>
+        {% endfor %}
+        
+        {% if group %}
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+{% endwith %}

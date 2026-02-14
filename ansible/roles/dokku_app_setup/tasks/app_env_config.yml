@@ -1,0 +1,22 @@
+# Parse and config Env variables from 1Password item
+- name: Parse environment variables from 1Password item
+  set_fact:
+    env_vars_from_op: []
+
+- name: Build environment variables list
+  set_fact:
+    env_vars_from_op: |
+      {%- set result = [] -%}
+      {%- for item in env_vars_onepassword -%}
+        {%- if item.value is defined and item.label != 'notesPlain' -%}
+          {%- set _ = result.append(item.label + '=' + item.value) -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {{ result }}
+
+- name: Set environment variables in Dokku app
+  shell: "dokku config:set --no-restart {{ web_app_name }} {{ env_vars_from_op | join(' ') }}"
+  become: yes
+  when: 
+    - env_vars_from_op is defined
+    - env_vars_from_op | length > 0

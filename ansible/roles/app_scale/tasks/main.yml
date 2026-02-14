@@ -1,0 +1,14 @@
+- name: Scale web process
+  shell: "dokku ps:scale {{ web_app_name }} web={{ web_app_scale }}"
+  register: scale_web_result
+  changed_when: "'Scaling' in scale_web_result.stdout"
+
+- name: Scale celery worker process
+  shell: "dokku ps:scale {{ web_app_name }} celery_worker={{ celery_worker_scale }}"
+  register: scale_celery_result
+  changed_when: "'Scaling' in scale_celery_result.stdout"
+
+- name: Scale celery LLM worker process
+  shell: "dokku ps:scale {{ web_app_name }} celery_llm_worker={{ celery_llm_worker_scale }}"
+  register: scale_celery_llm_result
+  changed_when: "'Scaling' in scale_celery_llm_result.stdout"

@@ -1,0 +1,13 @@
+- name: Check if Redis plugin is installed
+  shell: "dokku plugin:list | grep redis"
+  register: redis_plugin_check
+  changed_when: false
+  failed_when: false
+
+- name: Install Redis plugin
+  shell: "dokku plugin:install https://github.com/dokku/dokku-redis.git redis"
+  register: redis_plugin_result
+  failed_when:
+    - redis_plugin_result.rc != 0
+    - "'already installed' not in redis_plugin_result.stderr"
+  when: redis_plugin_check.rc != 0

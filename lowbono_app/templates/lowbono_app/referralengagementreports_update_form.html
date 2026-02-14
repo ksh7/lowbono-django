@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+{% block heading %}Engagement Status Report Update{% endblock %}
+
+{% block content %}
+
+<span >
+    Referral Request By: <a href="{% url 'referral-detail' id=object.referral.id %}">{{ object.referral.first_name}} {{ object.referral.last_name }}</a>
+    <br>
+    Referral Status During This Report: <strong>{{ object.referral.referralworkflowstate.get_current_task_pretty_name }}</strong>
+</span>
+
+<form method="post" class="mt-5">
+      
+    {% csrf_token %}
+    {% bootstrap_form form %}
+
+    {% bootstrap_form_errors form %}
+    <br><hr>
+    <p>{% bootstrap_button button_type="submit" content="Update Engagement Status Report" %}
+    {% bootstrap_button "Cancel" button_type="link" href=object.get_absolute_url button_class="btn-secondary" %}</p>
+</form>
+
+{% endblock %}

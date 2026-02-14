@@ -1,0 +1,11 @@
+- name: Dokku App Control
+  hosts: web_server
+  become: yes
+  gather_facts: yes
+  pre_tasks:
+    - name: Load 1Password Secrets
+      import_role:
+        name: load_1password
+
+  roles:
+    - role: app_control

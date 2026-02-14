@@ -1,0 +1,48 @@
+{% load static %}
+{% load i18n %}
+<header class="p-1 mb-3 border-bottom">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a class="navbar-brand" href="{% if request.user.is_authenticated and not request.user.is_staff %}{% url 'user-matters' id=request.user.id %}{% else %}/{% endif %}" aria-label="LowBono">
+        <img class="navbar-brand-logo" src="{% static 'lowbono_cms/assets/svg/logos/logo-lowbono.svg' %}" alt="LowBono Logo">
+      </a>
+
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0" style="padding-left: 20px;">
+        {% if request.user.is_authenticated %}
+          {% if request.user.is_staff %}
+            <li><a href="{% url 'professional-list' %}" class="nav-link px-2 link-secondary">All Professionals</a></li>
+            <li><a href="{% url 'invite' %}" class="nav-link px-2 link-secondary">New Invite</a></li>
+            <li><a href="{% url 'reset_password' %}" class="nav-link px-2 link-secondary">Reset Password</a></li>
+            <li><a href="/admin" class="nav-link px-2 link-secondary">Admin Dashboard <i class="bi bi-box-arrow-up-right"></i></a></li>
+          {% else %}
+            <li><a href="{% url 'professional-list' %}" class="nav-link px-2 link-secondary">All Professionals</a></li>
+            <li><a href="{% url 'user-matters' request.user.id %}" class="nav-link px-2 link-secondary">My Matters</a></li>
+            <li>
+              <a href="{% url 'vacations' request.user.id %}" class="nav-link px-2 link-secondary">
+                {% if request.user.is_on_vacation %}
+                <span class="text-info">
+                  On Vacation <i class="bi-emoji-sunglasses nav-icon success"></i>
+                </span>
+                {% else %}
+                  Vacations
+                {% endif %}
+              </a>
+            </li>
+            <li><a href="{% url 'user-detail' request.user.id %}" class="nav-link px-2 link-secondary">My Profile</a></li>
+          {% endif %}
+        {% endif %}
+      </ul>
+
+      <div class="text-end">
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          {% if request.user.is_authenticated %}
+            <li><a href="{% url 'user-detail' request.user.id %}" class="nav-link px-2 link-secondary">Hello, {{request.user.first_name}}</a></li>
+            <li><a href="{% url 'logout' %}" class="nav-link px-2 link-secondary">{% translate "Logout" %}</a></li>
+          {% else %}
+            <li><a href="{% url 'login' %}" class="nav-link px-2 link-secondary">{% translate "Login" %}</a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>

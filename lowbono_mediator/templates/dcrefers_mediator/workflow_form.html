@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load crispy_forms_tags %}
+
+{% block heading %}Edit Status Report{% endblock %}
+
+{% block content %}
+  <form method="POST">
+    {% csrf_token %}
+    {% crispy form %}
+  </form>
+
+  <script type="text/javascript">
+
+    var income_status = "{{object.referral.income_status}}";
+    var is_eligible = ['low', 'moderate'].includes(income_status)
+
+    var input_user_node_choice  = document.getElementById("id_user_node_choice");
+    var input_hours_worked = document.getElementById("id_hours_worked");
+    var div_id_hours_worked = document.getElementById("div_id_hours_worked");
+    var div_id_is_income_eligible = document.getElementById("div_id_is_income_eligible");
+    var div_id_ineligible_reason = document.getElementById("div_id_ineligible_reason");
+    var input_id_ineligible_reason = document.getElementById("id_ineligible_reason");
+
+    function had_consult() {
+      return !['waiting_for_pre_consult_update_from_both_party', 'waiting_for_pre_consult_update_from_other_party', 'closed_without_consult'].includes(input_user_node_choice.selectedOptions[0].value);
+    }
+
+    function is_engaged() {
+      return ['waiting_for_post_engagement_update', 'engagement_completed'].includes(input_user_node_choice.selectedOptions[0].value);
+    }
+
+    function provided_market_rate() {
+      return document.getElementById("id_is_income_eligible_1").checked
+    }
+
+    function eligibility_mismatch() {
+      return is_engaged() && provided_market_rate() && is_eligible
+    }
+
+    function set_display(el, show) {
+      el.classList.add(show ? "d-block" : "d-none");
+      el.classList.remove(show ? "d-none" : "d-block")
+    }
+
+    function set_form_state() {
+      set_display(div_id_hours_worked, had_consult())
+      set_display(div_id_is_income_eligible, is_engaged())
+      set_display(div_id_ineligible_reason, eligibility_mismatch())
+
+      if (!had_consult()) {
+        input_hours_worked.value = "0.0";
+      }
+
+      if (eligibility_mismatch()) {
+        input_id_ineligible_reason.setAttribute('required', 'true');
+      }
+      else {
+        input_id_ineligible_reason.removeAttribute('required');
+        input_id_ineligible_reason.value = "";
+      }
+    }
+
+    set_form_state()
+    document.getElementById("id_is_income_eligible_0").addEventListener("change", set_form_state);
+    document.getElementById("id_is_income_eligible_1").addEventListener("change", set_form_state);
+    input_user_node_choice.addEventListener("change", set_form_state);
+
+</script>
+{% endblock %}

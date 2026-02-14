@@ -1,0 +1,33 @@
+- name: Install UFW
+  apt:
+    name: ufw
+    state: present
+    update_cache: yes
+
+- name: Reset UFW to defaults
+  ufw:
+    state: reset
+
+- name: Set UFW default policy to deny incoming
+  ufw:
+    direction: incoming
+    policy: deny
+
+- name: Set UFW default policy to allow outgoing
+  ufw:
+    direction: outgoing
+    policy: allow
+
+- name: Allow SSH (port 22)
+  ufw:
+    rule: allow
+    port: '22'
+
+- name: Allow HTTPS (port 443)
+  ufw:
+    rule: allow
+    port: '443'
+
+- name: Enable UFW
+  ufw:
+    state: enabled

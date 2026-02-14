@@ -1,0 +1,66 @@
+{% extends "lowbono_cms/default.html" %}
+{% load django_bootstrap5 %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+
+{% block content %}
+<div class="container content-space-t-3 ">
+  <div class="w-lg-{{ step.width }} mx-auto">
+    {% bootstrap_messages %}
+    <div class="mb-5 mb-md-10">
+        <h3>{{ step.heading | safe }}</h3>
+
+      {% if step_alert %}
+        <p><small>{{ step_alert.body | safe }}</small></p>
+      {% endif %}
+
+      {% if step.before %}
+        <p><small>{{ step.before.body | safe }}</small></p>
+      {% endif %}
+
+      {% if form %}
+          <div class="my-5">
+            <form action="{{ request.path }}" method="post" class="form">
+              {% csrf_token %}
+              {% crispy form %}
+              {% if alert %}
+                  {% bootstrap_alert alert|safe %}
+              {% endif %}
+              {% if step.submit %}
+                {% bootstrap_button button_type="submit" content=step.submit %}
+              {% endif %}
+              {% if step.switch %}
+                {% bootstrap_button step.switch button_class="btn-secondary" button_type="link" href=step.switch_url %}
+              {% endif %}
+            </form>
+          </div>
+      {% endif %}
+
+      <div class="my-5">
+        {% if step.prev %}
+          {% bootstrap_button step.prev button_class="btn-secondary" button_type="link" href=prev_url %}
+        {% endif %}
+
+        {% if step.next %}
+          {% bootstrap_button step.next button_type="link" href=next_url %}
+        {% endif %}
+
+        {% if step.skip %}
+          {% bootstrap_button step.skip button_class="btn-secondary" button_type="link" href=skip_url %}
+        {% endif %}
+      </div>
+
+      {% if step.after %}
+        {% if step.after.heading %}
+        <p><span class="text-dark fw-semi-bold">{{ step.after.heading | safe }}</span></p>
+        {% endif %}
+
+        {% if step.after.body %}
+          <p><small>{{ step.after.body | safe }}</small></p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

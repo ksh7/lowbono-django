@@ -1,0 +1,17 @@
+<div class="card {{instance.bg_color|safe}} h-100 overflow-hidden">
+  <div class="card-body">
+    <div class="w-65 pe-2">
+      <h2 class="card-title text-white">{{instance.title}}</h2>
+      <p class="card-text text-white">{{instance.description|safe}}
+      </p>
+      {% if instance.btn_href and instance.btn_description %}
+        <a class="btn btn-light btn-sm btn-transition" href="{{instance.btn_href}}">{{instance.btn_description}} <i class="bi-chevron-right small ms-1"></i></a>
+      {% endif %}
+    </div>
+    {% if instance.overlay_image %} 
+    <div class="position-absolute end-0 bottom-0 w-50 mb-n3 me-n7">
+      <img class="card-img" src="{{ instance.overlay_image.url }}" alt="Image Description">
+    </div>
+    {% endif %}
+  </div>
+</div>

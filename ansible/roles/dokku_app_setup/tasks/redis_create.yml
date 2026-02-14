@@ -1,0 +1,13 @@
+- name: Check if Redis service exists
+  shell: "dokku redis:list | grep {{ redis_app_name }}"
+  register: redis_service_check
+  changed_when: false
+  failed_when: false
+
+- name: Create Redis service
+  shell: "dokku redis:create {{ redis_app_name }}"
+  register: redis_create_result
+  failed_when:
+    - redis_create_result.rc != 0
+    - "'already exists' not in redis_create_result.stderr"
+  when: redis_service_check.rc != 0

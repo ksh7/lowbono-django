@@ -1,0 +1,101 @@
+{% extends "lowbono_cms/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cms_tags sekizai_tags %}
+
+{% block content %}
+<div class="container content-space-t-2">
+  <div class="w-lg-75 text-center mx-lg-auto">
+    <div class="mb-5 mb-md-10 mt-10">
+      <h2>About Us</h2>
+      <p>DC Refers is an online directory of lawyers and mediators who are willing to accept modest means clients (incomes within 200-400% of the federal poverty guidelines). If they accept your case, the lawyers and mediators will charge modest means clients reduced fee rates of between $75-150 per hour. The lawyers and mediators may charge their usual rates to clients with higher incomes.</p>
+      <p>DC Refers cannot guarantee that you will find a lawyer or mediator for your case. Lawyers and mediators may decide not to accept your case for any reason. DC Refers does not provide legal services of any kind and does not receive any money for referrals to the lawyers or mediators listed in our directory.</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="accordion mb-10" id="accordionExample">
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingOne">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+            Who are the lawyers in the directory?
+            </a>
+          </div>
+          <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              <p>Lawyers in our directory must:</p>
+              <ul>
+                <li>be members in good standing of the D.C. Bar or the appropriate Federal forum;</li>
+                <li>maintain malpractice insurance;</li>
+                <li>have at least two years of relevant experience; and</li>
+                <li>submit an online application that includes both professional and client references that are checked by DC Refers.</li>
+              </ul>           
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingTwo">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+              How do clients connect with lawyers?
+            </a>
+          </div>
+          <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Modest-means clients will use the online directory to access a list of reduced fee lawyers who may be available to represent or advise them on a broad range of legal matters. Clients can submit consultation requests to lawyers directly through this website.
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingThree">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+              What happens after the client contacts the lawyer?
+            </a>
+          </div>
+          <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Lawyers must determine whether the client’s income falls within 200-400% of the federal poverty guidelines, and whether the lawyer is able to accept the client’s case. The lawyer should follow their standard intake and conflicts check procedures when deciding whether or not to accept a particular matter. The attorney-client relationship is solely between the participating lawyer and the client. DC Refers does not guarantee that clients will pay the legal fees assessed.  
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingFour">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+              What happens at the end of the representation?
+            </a>
+          </div>
+          <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              Lawyers should follow their standard case closing procedures when the matter has ended. DC Refers will check in from time to time with clients who use our service and with lawyers participating in the service. We will ask if clients are satisfied with the legal services they received. We also will ask lawyers for feedback about the referral process, and will seek to ensure that DC Refers provides helpful referrals for clients and lawyers. We welcome your input!
+            </div>
+          </div>
+        </div>
+        <div class="accordion-item">
+          <div class="accordion-header" id="headingFive">
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+              How do I join DC Refers?
+            </a>
+          </div>
+          <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+            <div class="accordion-body">
+              You can apply anytime <a href="/join-our-directory">here</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <a href="https://docs.google.com/document/d/19myHzKtVqpaZKy9Vl8fZOvKNmAvQonwxTyYuT-pKH_8/export?format=pdf" class="btn btn-outline-primary">Download PDF Flyer <i class="bi bi-file-earmark-pdf"></i></a>
+      <a href="https://docs.google.com/document/d/1SWeBTTim3WmTGji4q7kCZBVTjvDVPzseKo6Ika-EZ0M/export?format=pdf" class="btn btn-outline-primary my-2">Descargas folleto en pdf <i class="bi bi-file-earmark-pdf"></i></a>
+      <div class="card card-bordered" style="max-width: 20rem;">
+        <img class="card-img-top" src="{% static 'lowbono_cms/assets/img/general-contact-sample.png' %}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">DC Refers is an online listing of lawyers and mediators who are willing to represent modest-means clients at below-market rates.</p>
+          <a href="/lawyers/1" class="btn btn-success">Find a lawyer <i class="bi bi-arrow-right"></i></a>
+          <a href="/mediators/1" class="btn btn-secondary mt-2">Find a mediator <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</div>
+{% endblock %}

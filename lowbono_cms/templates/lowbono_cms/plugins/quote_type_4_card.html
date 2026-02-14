@@ -1,0 +1,36 @@
+{% load static %}
+<div class="overflow-hidden">
+  <div class="container content-space-2 content-space-lg-3">
+    <div class="row justify-content-lg-center align-items-md-center">
+      <div class="col-md-5 mb-10 mb-md-0">
+        <div class="position-relative">
+          {% if instance.person_image %}
+          <img class="img-fluid rounded-2" src="{{ instance.person_image.url }}" alt="{{instance.person_name|safe}}">
+          {% endif %}
+          <div class="position-absolute bottom-0 start-0 zi-n1 mb-n7 ms-n7" style="width: 12rem;">
+            <img class="img-fluid" src="{% static './lowbono_cms/assets/svg/components/dots-lg.svg' %}" alt="Image Description">
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-5">
+        <div class="ps-md-6">
+          <div class="mb-4">
+            {% if instance.brand_image %}
+              <img class="avatar avatar-xl avatar-4x3" src="{{ instance.brand_image.url }}" alt="Image Description">
+            {% endif %}
+          </div>
+
+          <figure>
+            <blockquote class="blockquote blockquote-lg">"{{instance.quote|safe}}"</blockquote>
+
+            <figcaption class="blockquote-footer">
+              {{instance.person_name|safe}}
+              <span class="blockquote-footer-source">{{instance.person_designation|safe}}</span>
+            </figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

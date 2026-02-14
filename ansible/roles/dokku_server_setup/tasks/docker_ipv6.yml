@@ -1,0 +1,61 @@
+- name: Check if Docker daemon.json exists
+  stat:
+    path: /etc/docker/daemon.json
+  register: docker_daemon_json
+
+- name: Read existing Docker daemon configuration
+  slurp:
+    src: /etc/docker/daemon.json
+  register: existing_config
+  when: docker_daemon_json.stat.exists
+
+- name: Parse existing Docker daemon configuration
+  set_fact:
+    docker_config: "{{ existing_config.content | b64decode | from_json }}"
+  when: docker_daemon_json.stat.exists
+
+- name: Initialize Docker configuration if file doesn't exist
+  set_fact:
+    docker_config: {}
+  when: not docker_daemon_json.stat.exists
+
+- name: Create /etc/docker directory if it doesn't exist
+  file:
+    path: /etc/docker
+    state: directory
+    mode: '0755'
+  become: yes
+
+- name: Merge IPv6 configuration with existing Docker config
+  set_fact:
+    updated_docker_config: "{{ docker_config | combine({
+      'ipv6': true,
+      'fixed-cidr-v6': 'fd00:dead:beef::/48'
+    }) }}"
+
+- name: Write updated Docker daemon configuration
+  copy:
+    content: "{{ updated_docker_config | to_nice_json }}"
+    dest: /etc/docker/daemon.json
+    mode: '0644'
+    backup: yes
+  become: yes
+  notify: restart docker
+
+- name: Flush handlers
+  meta: flush_handlers
+
+- name: Verify Docker IPv6 configuration
+  command: docker network inspect bridge
+  register: docker_bridge_info
+  changed_when: false
+  become: yes
+
+- name: Display Docker bridge IPv6 status
+  debug:
+    var: docker_bridge_info.stdout
+  when: docker_bridge_info is defined
+
+- name: Check for IPv6 enablement
+  debug:
+    msg: "IPv6 should now be enabled. Look for 'EnableIPv6': true and IPv6Gateway in the bridge network output above."

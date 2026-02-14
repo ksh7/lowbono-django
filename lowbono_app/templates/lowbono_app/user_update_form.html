@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<form method="post" enctype="multipart/form-data">
+    <script>
+      add_more = function (partial_prefix) {
+          // e.prevent_default();
+          // console.log(prefix + ' - it worked!!!');
+          const prefix = 'id_' + partial_prefix
+          const emptyform_wrapper_el = document.getElementById(prefix + '_emptyform_wrapper');
+          const formset_wrapper_el = document.getElementById(prefix + '_formset_wrapper')
+          let total_forms_el = document.getElementById(prefix + '-TOTAL_FORMS')
+          const form_idx = total_forms_el.value;
+
+          const new_form_idx = (parseInt(form_idx)+1).toString();
+          total_forms_el.value = new_form_idx;
+
+          const newform_html = emptyform_wrapper_el.innerHTML.replace(/__prefix__/g, form_idx)
+          formset_wrapper_el.innerHTML = formset_wrapper_el.innerHTML + newform_html
+
+          return false;
+        };
+    </script>
+
+    {% csrf_token %}
+
+    <div class="card mb-5">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Edit Basic Details</h4>
+      </div>
+      <div class="card-body">
+        {{ form.media }}
+        {% bootstrap_form form layout='horizontal' %}
+      </div>
+    </div>
+
+    {% if object.lawyer_user %}
+    <div class="card mb-5">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Edit Practice Areas (Lawyer)</h4>
+      </div>
+      <div class="card-body mx-10">
+        <fieldset>
+          <div id="id_{{ formset_lawyer_practicearea.prefix }}_formset_wrapper">
+            {% bootstrap_formset formset_lawyer_practicearea layout='inline' %}
+          </div>
+          {% if formset_lawyer_practicearea.add_more %}
+            {% with add_btn_id="id_"|add:formset_lawyer_practicearea.prefix|add:"_add_btn" onclick='return add_more("'|add:formset_lawyer_practicearea.prefix|add:'")' %}
+              {% bootstrap_button "Add another" id=add_btn_id onclick=onclick %}
+            {% endwith %}
+            <div id="id_{{ formset_lawyer_practicearea.prefix }}_emptyform_wrapper" style="display: none">
+                {% bootstrap_form formset_lawyer_practicearea.empty_form %}
+            </div>
+          {% endif %}
+          {% bootstrap_formset_errors formset_lawyer_practicearea %}
+        </fieldset>
+      </div>
+    </div>
+    {% endif %}
+
+    {% if object.mediator_user %}
+    <div class="card mb-5">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Edit Practice Areas (Mediator)</h4>
+      </div>
+      <div class="card-body mx-10">
+        <fieldset>
+          <div id="id_{{ formset_mediator_practicearea.prefix }}_formset_wrapper">
+            {% bootstrap_formset formset_mediator_practicearea layout='inline' %}
+          </div>
+          {% if formset_mediator_practicearea.add_more %}
+            {% with add_btn_id="id_"|add:formset_mediator_practicearea.prefix|add:"_add_btn" onclick='return add_more("'|add:formset_mediator_practicearea.prefix|add:'")' %}
+              {% bootstrap_button "Add another" id=add_btn_id onclick=onclick %}
+            {% endwith %}
+            <div id="id_{{ formset_mediator_practicearea.prefix }}_emptyform_wrapper" style="display: none">
+                {% bootstrap_form formset_mediator_practicearea.empty_form %}
+            </div>
+          {% endif %}
+          {% bootstrap_formset_errors formset_mediator_practicearea %}
+        </fieldset>
+      </div>
+    </div>
+    <div class="card mb-5">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Select Mediation Type</h4>
+      </div>
+      <div class="card-body">
+        {% bootstrap_form form_mediation_type %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="card mb-5">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Edit Additional Languages</h4>
+      </div>
+      <div class="card-body">
+        <fieldset>
+          <div id="id_{{ formset_bio.prefix }}_formset_wrapper">
+            {% bootstrap_formset formset_bio layout='horizontal' %}
+          </div>
+          {% if formset_bio.add_more %}
+            {% with add_btn_id="id_"|add:formset_bio.prefix|add:"_add_btn" onclick='return add_more("'|add:formset_bio.prefix|add:'")' %}
+              {% bootstrap_button "Add another" id=add_btn_id onclick=onclick %}
+            {% endwith %}
+            <div id="id_{{ formset_bio.prefix }}_emptyform_wrapper" style="display: none">
+                {% bootstrap_form formset_bio.empty_form %}
+            </div>
+          {% endif %}
+          {% bootstrap_formset_errors formset_bio %}
+        </fieldset>
+      </div>
+    </div>
+
+    <div class="card mb-5">
+      <div class="card-header border-bottom">
+        <h4 class="card-header-title">Edit Bar Licenses</h4>
+      </div>
+      <div class="card-body">
+        <fieldset>
+          <div id="id_{{ formset_bar.prefix }}_formset_wrapper">
+            {% bootstrap_formset formset_bar layout='horizontal' %}
+          </div>
+          {% if formset_bar.add_more %}
+            {% with add_btn_id="id_"|add:formset_bar.prefix|add:"_add_btn" onclick='return add_more("'|add:formset_bar.prefix|add:'")' %}
+              {% bootstrap_button "Add another" id=add_btn_id onclick=onclick %}
+            {% endwith %}
+            <div id="id_{{ formset_bar.prefix }}_emptyform_wrapper" style="display: none">
+              {% bootstrap_form formset_bar.empty_form %}
+            </div>
+          {% endif %}
+        {% bootstrap_formset_errors formset_bar %}
+      </fieldset>
+      </div>
+    </div>
+    {% bootstrap_form_errors form %}
+    <br><hr>
+    <p>{% bootstrap_button button_type="submit" content="Update Profile" %}
+    {% bootstrap_button "Cancel" button_type="link" href=object.get_absolute_url button_class="btn-secondary" %}</p>
+</form>
+
+{% endblock %}

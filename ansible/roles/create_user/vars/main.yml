@@ -1,0 +1,2 @@
+# Load new server username from 1Password
+new_server_username: "{{ server_username }}"

@@ -1,0 +1,42 @@
+- name: Load 1Password Server Details
+  set_fact:
+    server_ip: "{{ lookup('community.general.onepassword', onepassword_server_item, field='server_ip', vault=onepassword_vault) }}"
+    server_username: "{{ lookup('community.general.onepassword', onepassword_server_item, field='server_username', vault=onepassword_vault) }}"
+
+- name: Load 1Password App Type Item Names
+  set_fact:
+    app_type_item_names:
+      staging:
+        config_item: "{{ lookup('community.general.onepassword', onepassword_server_item, field='staging_app_config_item_name', vault=onepassword_vault) }}"
+        env_item: "{{ lookup('community.general.onepassword', onepassword_server_item, field='staging_app_evs_item_name', vault=onepassword_vault) }}"
+      production:
+        config_item: "{{ lookup('community.general.onepassword', onepassword_server_item, field='production_app_config_item_name', vault=onepassword_vault) }}"
+        env_item: "{{ lookup('community.general.onepassword', onepassword_server_item, field='production_app_evs_item_name', vault=onepassword_vault) }}"
+  when:
+    - app_type is defined
+    - app_type != ""
+
+
+- name: Load 1Password '{{ app_type }}' App Item Names
+  set_fact:
+    app_item_names:
+      config_item: "{{ app_type_item_names[app_type].config_item | default('') }}"
+      env_item: "{{ app_type_item_names[app_type].env_item | default('') }}"
+  when:
+    - app_type is defined
+    - app_type != ""
+
+
+- name: Load 1Password '{{ app_type }}' App Configs, Env Vars
+  set_fact:
+    onepassword_app_secrets:
+      # Load app config variables
+      web_app_name: "{{ lookup('community.general.onepassword', app_item_names.config_item, field='web_app_name', vault=onepassword_vault) }}"
+      domain_name: "{{ lookup('community.general.onepassword', app_item_names.config_item, field='domain_name', vault=onepassword_vault) }}"
+      web_app_dokku_port: "{{ lookup('community.general.onepassword', app_item_names.config_item, field='web_app_dokku_port', vault=onepassword_vault) }}"
+      redis_app_name: "{{ lookup('community.general.onepassword', app_item_names.config_item, field='redis_app_name', vault=onepassword_vault) }}"
+      # Load app environment variables
+      env_vars: "{{ lookup('community.general.onepassword_raw', app_item_names.env_item, vault=onepassword_vault, return_all=true).fields }}"
+  when:
+    - app_type is defined
+    - app_type != ""

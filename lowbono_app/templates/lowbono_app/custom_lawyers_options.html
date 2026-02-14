@@ -1,0 +1,12 @@
+
+{% extends "lowbono_app/custom_professionals_options.html" %}
+{% load custom_template_filters %}
+{% load static %}
+
+{% block aria-label %}
+  <div class="card card-bordered mb-5" aria-label="Lawyer: {{widget.label.get_full_name}}" tabindex="0">
+{% endblock %}
+
+{% block btn_title %}
+  <button class="float-end btn btn-sm btn-soft-primary" name="{{ widget.name }}" type="submit" value="{{ widget.value|stringformat:'s' }}" aria-label="Select Lawyer: {{widget.label.get_full_name}}">Select Lawyer</button>
+{% endblock %}

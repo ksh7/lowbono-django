@@ -1,0 +1,4 @@
+# Dokku configuration
+dokku:
+  install_path: /usr/bin/dokku
+  bootstrap_script_path: /tmp/bootstrap.sh

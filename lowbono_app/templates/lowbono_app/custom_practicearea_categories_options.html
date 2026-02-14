@@ -1,0 +1,29 @@
+{% load custom_template_filters %}
+{% if widget.label.id|subject_icon_exists %}
+  <div class="card card-bordered h-100{% if widget.attrs.checked %} border-primary{% endif %}" aria-label="{{widget.label.title}}" tabindex="0" style="min-height: 150px;">
+{% else %}
+  <div class="card card-bordered h-100" aria-label="{{widget.label.title}}" tabindex="0" style="min-height: 115px;">
+{% endif %}
+  {% if widget.label.id|subject_icon_exists %}
+    <div class="card-body" style="padding-top: 0.2rem; padding-right: 1rem; padding-bottom: 0rem; padding-left: 1rem;">
+  {% else %}
+    <div class="card-body" style="padding-top: 1rem; padding-right: 1rem; padding-bottom: 0rem; padding-left: 1rem;">
+  {% endif %}
+    {% if widget.label.id|subject_icon_exists %}
+    <div class="row d-flex justify-content-center mb-0">
+      <svg viewBox="0 0 100 100" class="icon"  tabindex="-1" aria-labelledby="title">
+        <title>{{widget.label.title}}</title>
+        <use xlink:href="#{{widget.label.id}}"></use>
+      </svg>
+    </div>
+    {% endif %}
+    <div class="row text-center mb-2 mt-0">
+      <h5 class="card-title">{{widget.label.title}}</h5>
+    </div>
+  </div>
+  <div class="card-footer"  style="padding-top: 0rem; padding-bottom: 0.5rem; padding-right: 1rem; padding-left: 1rem;">
+    <div class="col text-center align-bottom">
+      <button class="btn btn-sm btn-soft-primary" name="{{ widget.name }}" type="submit" value="{{ widget.value|stringformat:'s' }}" aria-label="Select Subject: {{widget.label.title}}">Select</button>
+   </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+{% if overdue_matters %}
+  {% include 'lowbono_app/matter_items_pending.html' with matters=overdue_matters matter_type='Overdue Matters ('|add:professional_type|add:')' only %}
+{% endif %}
+
+{% if pending_matters %}
+  {% include 'lowbono_app/matter_items_pending.html' with matters=pending_matters matter_type='Pending Matters ('|add:professional_type|add:')' only %}
+{% endif %}
+
+{% if closed_matters %}
+  {% include 'lowbono_app/matter_items_closed.html' with matters=closed_matters matter_type='Closed Matters ('|add:professional_type|add:')' only %}
+{% endif %}

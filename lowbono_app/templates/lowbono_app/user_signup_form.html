@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block heading %}Welcome to LowBono!{% endblock %}
+
+{% block content %}
+<p>Please enter a new password.</p>
+<form method="post" action="" class="form">
+    {% csrf_token %}
+    <div class="mb-3">
+      <input type="password" name="password" maxlength="64" class="form-control" placeholder="Password" required id="password">
+    </div>
+    {% bootstrap_button button_type="submit" content="Complete Signup" %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,11 @@
+{% load custom_template_filters %}
+<td><a href="{% url 'referral-detail' id=referral.id %}">{{ referral.last_name }}, {{ referral.first_name }}</a></td>
+<td>{{ referral.referrallawyerworkflowstate.get_current_task_pretty_name }}</td>
+<td>{{referral.referrallawyerworkflowstate.human_last_updated_at|pretty_date_custom}}</td>
+<td><p><mark>Done!</mark></p></td>
+<td>
+  {% if referral.referrallawyerworkflowstate.workflow_task_update_url %}
+  <a href="{{ referral.referrallawyerworkflowstate.workflow_task_update_url }}?next=list" target="_blank">Update <i
+      class="bi-box-arrow-up-right"></i></a>
+  {% endif %}
+</td>

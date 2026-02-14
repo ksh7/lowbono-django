@@ -1,0 +1,7 @@
+db.sqlite3
+__pycache__
+emails
+files
+celeryschedule
+__MACOSX
+geckodriver.log

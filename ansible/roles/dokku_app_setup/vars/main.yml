@@ -1,0 +1,8 @@
+# Load app configuration from 1Password
+web_app_name: "{{ onepassword_app_secrets.web_app_name }}"
+domain_name: "{{ onepassword_app_secrets.domain_name }}"
+web_app_dokku_port: "{{ onepassword_app_secrets.web_app_dokku_port }}"
+redis_app_name: "{{ onepassword_app_secrets.redis_app_name }}"
+
+# Load app environment variables from 1Password
+env_vars_onepassword: "{{ onepassword_app_secrets.env_vars }}"

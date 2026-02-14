@@ -1,0 +1,27 @@
+{% load i18n menu_tags %}
+{% load static %}
+
+{% if languages|length > 1 %}
+<!-- Button Group -->
+<div class="btn-group">
+  <button type="button" class="btn btn-soft-secondary btn-xs dropdown-toggle" id="NavbarSelectLanguage" data-bs-toggle="dropdown" aria-expanded="false" data-bs-dropdown-animation>
+    {% for language in languages %}
+    {% if current_language == language.0 %}
+    <span class="d-flex align-items-center">
+      <img class="avatar avatar-xss avatar-circle me-2" src="{% static 'lowbono_cms/assets/vendor/flag-icon-css/flags/1x1/' %}{{ language.0}}.svg" alt="{{ language.0 }} flag" width="16"/>
+      <span>{{ language.1 }}</span>
+    </span>
+    {% endif %}
+    {% endfor %}
+  </button>
+  <div class="dropdown-menu" aria-labelledby="NavbarSelectLanguage">
+    {% for language in languages %}
+    <a class="dropdown-item d-flex align-items-center {% if current_language == language.0 %}active{% endif %}" {% if current_language == language.0 %}aria-current="page"{% endif %} href="{% page_language_url language.0 %}" title="{% trans "Change to language:" %} {{ language.1 }}">
+      <img class="avatar avatar-xss avatar-circle me-2" src="{% static 'lowbono_cms/assets/vendor/flag-icon-css/flags/1x1/' %}{{ language.0}}.svg" alt="{{ language.0 }} flag" width="16"/>
+      <span>{{ language.1 }}</span>
+    </a>
+    {% endfor %}
+  </div>
+</div>
+<!-- End Button Group -->
+{% endif %}

@@ -1,0 +1,14 @@
+<div class="card card-bordered h-100{% if widget.attrs.checked %} border-primary{% endif %}" aria-label="{{widget.label.title}}" tabindex="0">
+    <div class="card-body" style="padding-top: 1rem; padding-right: 1rem; padding-bottom: 1rem; padding-left: 1rem;">
+      <div class="d-flex">
+        <div class="flex-grow-1 ms-3">
+          <div class="d-flex align-items-center">
+            <h5 class="card-title mb-0">{{widget.label.title}}</h5>
+          </div>
+          <p class="card-text text-body small" style="display: -webkit-box; -webkit-box-orient: vertical;">{{ widget.label.definition }}</p>
+          <button class="btn btn-sm btn-soft-primary" name="{{ widget.name }}" type="submit" value="{{ widget.value|stringformat:'s' }}" aria-label="Select Subject: {{widget.label.title}}">Select</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  

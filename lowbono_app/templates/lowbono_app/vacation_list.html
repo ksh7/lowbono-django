@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block content %}
+
+<div class="card mb-5">
+  <div class="card-header d-flex justify-content-between align-items-center border-bottom">
+    <p>Current Vacation Status:
+      {% if request.user.is_on_vacation %}
+        <span class="badge bg-soft-success text-success rounded-pill nav-link-badge">On Vacation</span>
+      {% else %}
+        <span class="badge bg-soft-dark text-dark rounded-pill nav-link-badge">Working</span>
+      {% endif %}
+    </p>
+    <a href="{% url 'vacations-add' user_id=request.user.id %}" class="btn btn-sm btn-primary">Add Vacation</a>
+  </div>
+</div>
+
+<div class="card mb-5">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <p><span class="text-dark fw-semi-bold">Your Vacation Details</span></p>
+        <table class="table">
+          <thead class="thead">
+            <tr>
+              <th scope="col">From</th>
+              <th scope="col">To</th>
+              <th scope="col">Edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% if object_list %}
+              {% for vacation in object_list %}
+                <tr>
+                  <td>{{ vacation.first_day }}</td>
+                  <td>{{ vacation.last_day }}</td>
+                  <td><a href="{% url 'vacations-edit' user_id=request.user.id id=vacation.id %}">Edit</a></td>
+                </tr>
+              {% endfor %}
+            {% else %}
+            <tr>
+              <td>No vacation details available.</td>
+              <td></td>
+              <td></td>
+            </tr>
+            {% endif %}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

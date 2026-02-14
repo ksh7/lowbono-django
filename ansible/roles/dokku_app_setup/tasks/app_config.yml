@@ -1,0 +1,33 @@
+- name: Check current app domains
+  shell: "dokku domains:report {{ web_app_name }} | grep 'Domains app vhosts'"
+  register: current_domains
+  changed_when: false
+  failed_when: false
+
+- name: Add domain to Dokku app
+  shell: "dokku domains:add {{ web_app_name }} {{ domain_name }}"
+  register: domain_add_result
+  failed_when:
+    - domain_add_result.rc != 0
+    - "'already added' not in domain_add_result.stderr"
+  when: 
+    - domain_name is defined 
+    - domain_name != ""
+    - domain_name not in current_domains.stdout
+
+- name: Check current app ports
+  shell: "dokku ports:report {{ web_app_name }}"
+  register: current_ports
+  changed_when: false
+  failed_when: false
+
+- name: Add port to Dokku app
+  shell: "dokku ports:add {{ web_app_name }} http:{{ web_app_dokku_port }}:8000"
+  register: port_add_result
+  failed_when:
+    - port_add_result.rc != 0
+    - "'already added' not in port_add_result.stderr"
+  when: 
+    - web_app_dokku_port is defined 
+    - web_app_dokku_port != ""
+    - ('http:' + web_app_dokku_port|string + ':8000') not in current_ports.stdout

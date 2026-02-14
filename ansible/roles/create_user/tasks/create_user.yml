@@ -1,0 +1,57 @@
+- name: Create {{ new_server_username }} user
+  user:
+    name: "{{ new_server_username }}"
+    shell: /bin/bash
+    create_home: yes
+    state: present
+  become: yes
+
+- name: Add {{ new_server_username }} user to sudo group
+  user:
+    name: "{{ new_server_username }}"
+    groups: sudo
+    append: yes
+  become: yes
+
+- name: Create sudoers file for passwordless sudo
+  copy:
+    content: "{{ new_server_username }} ALL=(ALL) NOPASSWD:ALL\n"
+    dest: "/etc/sudoers.d/{{ new_server_username }}"
+    mode: '0440'
+    owner: root
+    group: root
+  become: yes
+
+- name: Disable SSH password authentication
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: '^#?PasswordAuthentication'
+    line: 'PasswordAuthentication no'
+    state: present
+    backup: yes
+  become: yes
+  notify: restart ssh
+
+- name: Ensure .ssh directory exists for {{ new_server_username }} user
+  file:
+    path: "/home/{{ new_server_username }}/.ssh"
+    state: directory
+    owner: "{{ new_server_username }}"
+    group: "{{ new_server_username }}"
+    mode: '0700'
+  become: yes
+
+- name: Copy SSH authorized_keys from current user to {{ new_server_username }} user
+  copy:
+    src: "{{ ansible_env.HOME }}/.ssh/authorized_keys"
+    dest: "/home/{{ new_server_username }}/.ssh/authorized_keys"
+    owner: "{{ new_server_username }}"
+    group: "{{ new_server_username }}"
+    mode: '0600'
+    remote_src: yes
+  become: yes
+  when: ansible_env.HOME is defined
+
+- name: Display completion message
+  debug:
+    msg: "User setup complete. You can now SSH as '{{ new_server_username }}'."

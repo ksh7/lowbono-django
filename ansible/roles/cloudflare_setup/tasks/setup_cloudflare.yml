@@ -1,0 +1,41 @@
+- name: Create keyrings directory for Cloudflare
+  file:
+    path: /usr/share/keyrings
+    state: directory
+    mode: '0755'
+
+- name: Check if Cloudflare GPG key exists
+  stat:
+    path: /usr/share/keyrings/cloudflare-main.gpg
+  register: cloudflare_gpg_key
+
+- name: Add Cloudflare GPG key
+  get_url:
+    url: https://pkg.cloudflare.com/cloudflare-main.gpg
+    dest: /usr/share/keyrings/cloudflare-main.gpg
+    mode: '0644'
+    timeout: 60
+  when: not cloudflare_gpg_key.stat.exists
+  notify: update apt cache
+
+- name: Check if Cloudflare repository is configured
+  stat:
+    path: /etc/apt/sources.list.d/cloudflared.list
+  register: cloudflare_repo
+
+- name: Add Cloudflare repository to apt sources
+  apt_repository:
+    repo: "deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main"
+    filename: cloudflared
+    state: present
+  when: not cloudflare_repo.stat.exists
+  notify: update apt cache
+
+- name: Flush handlers to update apt cache
+  meta: flush_handlers
+
+- name: Install cloudflared
+  apt:
+    name: cloudflared
+    state: present
+    update_cache: yes

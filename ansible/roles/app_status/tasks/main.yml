@@ -1,0 +1,26 @@
+- name: Get app information
+  shell: "dokku apps:report {{ web_app_name }}"
+  register: app_info
+  changed_when: false
+
+- name: Display app information
+  debug:
+    var: app_info.stdout_lines
+
+- name: Get process status
+  shell: "dokku ps:report {{ web_app_name }}"
+  register: process_status
+  changed_when: false
+
+- name: Display process status
+  debug:
+    var: process_status.stdout_lines
+
+- name: Get configuration
+  shell: "dokku config:show {{ web_app_name }}"
+  register: app_config
+  changed_when: false
+
+- name: Display configuration
+  debug:
+    var: app_config.stdout_lines

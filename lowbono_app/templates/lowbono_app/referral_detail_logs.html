@@ -1,0 +1,211 @@
+{% load django_bootstrap5 %}
+{% load i18n %}
+{% load custom_template_filters %}
+
+{% block content %}
+
+{% if request.user.id == object.professional.id %}
+
+    <div class="card mb-7">
+      <div class="card-body">
+        <div class="row col-md-divider align-items-md-center">
+          <div class="col-md-8">
+            <h3>Current Report Status</h3>
+            <p>Based on last update from you.</p>
+            <ul class="list-pointer mb-0">
+              <li class="list-pointer-item"><strong>Consult Status:</strong> 
+                {{ referral_workflow.get_current_task_pretty_name }}
+                </li>
+              <li class="list-pointer-item"><strong>Total Reported Hours:</strong> {% if engagement_reported_hours %}{{ engagement_reported_hours }} {% else %} 0 {% endif %} hours</li>
+    		</ul>
+          </div>
+          <div class="col-md-4">
+              {% if not referral_workflow.workflow_completed %}
+                <div class="ps-md-2">
+                {% if referral_workflow.workflow_task_update_url %}
+                    <a href="{{ referral_workflow.workflow_task_update_url }}" class="btn btn-sm btn-primary">Update Report</a>
+                {% else %}
+                  <a class="btn btn-sm btn-secondary disabled">Update Report</a>
+                {% endif %}
+                </div>
+    		      {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Your Engagment Reports</h3>
+        <p class="card-text">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Hours Worked</th>
+                <th scope="col">Notes</th>
+    			      <th scope="col">Status Reported</th>
+                <th scope="col">Reported On</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if engagement_reports %}
+                {% for report in engagement_reports %}
+                  <tr>
+                  <td>
+                  {% if report.hours_worked %}
+                    {{report.hours_worked}} hours
+                  {% else %}
+                    -
+                  {% endif %}
+                </td>
+                <td>
+                  {% if report.notes %}
+                    {% if report.notes|length > 50 %}
+                      <div>
+                        <input type="checkbox" class="read-more-state" id="show-btn-{{report.id}}" />
+                        <p class="read-more-wrap">{{report.notes | slice:":51"}}<span class="three-dots">...</span><span class="read-more-target">{{report.notes | slice:"51:"}}</span><label for="show-btn-{{report.id}}" class="read-more-trigger"></label></p>
+                      </div>
+                    {% else %}
+                      {{report.notes}}
+                    {% endif %}
+                  {% else %}
+                    -
+                  {% endif %}
+                </td>
+                <td>{{ report.history_object.get_current_task_pretty_name }}</td>
+                <td>{{report.updated_at | date:"M d, Y"}}</td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td>No hourly engagement reports</td><td></td><td></td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">Notifications Sent</h3>
+        <p class="card-text">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Purpose</th>
+                <th scope="col">Sent On</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if notification_logs %}
+                {% for notification in notification_logs %}
+                  <tr>
+                    <td>{{notification.sent_for}}</td>
+                    <td>{{notification.sent_at | date:"M d, Y"}}</td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td>No notifications sent!</td><td></td><td></td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </p>
+      </div>
+    </div>
+
+{% endif %}
+
+
+{% if request.user.is_staff %}
+
+    <div class="card mb-7">
+      <div class="card-body">
+        <div class="row col-md-divider align-items-md-center">
+          <div class="col-md-7">
+            <h3>Current Report Status</h3>
+            <p>Based on last activity by lawyer.</p>
+            <ul class="list-pointer mb-0">
+              <li class="list-pointer-item"><strong>Consult Status:</strong> 
+                {{ referral_workflow.get_current_task_pretty_name }}
+              </li>
+              <li class="list-pointer-item"><strong>Total Reported Hours:</strong> {% if engagement_reported_hours %} {{ engagement_reported_hours }} {% else %} 0 {% endif %} hours</li>
+              </ul>
+          </div>
+          <div class="col-md-5">
+            <h3>Current Workflow Node</h3>
+              <p>{{ referral_workflow.get_current_task_pretty_name }}</p>
+              <div class="ps-md-2">
+                  <a href="{{referral_workflow.get_absolute_url}}" class="btn btn-sm btn-primary">View Workflow Graph</a>
+                 </div>     
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-body">
+        <h3 class="card-title">All Logs</h3>
+        <p class="card-text">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Activity</th>
+                <th scope="col">Time</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if all_admin_logs %}
+                {% for log in all_admin_logs %}
+                  <tr>
+    				  <td>
+    					{% if log.type == 'status_report'%}
+    					<i class="bi bi-file-earmark-text"></i> Report
+    					{% endif %}
+    					{% if log.type == 'notification'%}
+    					<i class="bi bi-envelope"></i> Notification
+    					{% endif %}
+    				  </td>
+    				  <td>
+    					{% if log.type == 'status_report'%}
+    						Status Updated To: <i>{{log.report_status}}</i>
+                {% if log.hours_worked > 0 %}
+                  <br><br> Hours: <i>{{log.hours_worked}} hours</i>
+                {% endif %}
+                {% if log.notes %}
+                  <br><br> Notes:
+                  {% if log.notes|length > 50 %}
+                    <div>
+                      <input type="checkbox" class="read-more-state" id="show-btn-{{report.id}}" />
+                      <p class="read-more-wrap">{{log.notes | slice:":51"}}<span class="three-dots">...</span><span class="read-more-target">{{log.notes | slice:"51:"}}</span><label for="show-btn-{{log.id}}" class="read-more-trigger"></label></p>
+                    </div>
+                  {% else %}
+                    {{log.notes}}
+                  {% endif %}
+                {% endif %} 
+    					{% endif %}
+    					{% if log.type == 'notification'%}
+    						{{log.email_type}}
+    					{% endif %}
+    				  </td>
+    				  <td>{{log.timestamp | date:"M d, Y H:i A"}}</td>
+                  </tr>
+                {% endfor %}
+              {% else %}
+                <tr>
+                  <td>No logs available.</td><td></td><td></td>
+                </tr>
+              {% endif %}
+            </tbody>
+          </table>
+        </p>
+      </div>
+    </div>
+
+{% endif %}
+
+{% endblock %}

@@ -1,0 +1,38 @@
+<div class="row mb-7">
+  {% for news in news_articles %}
+  <div class="col-sm-6 col-lg-4 mb-4">
+    <div class="card h-100">
+      <div class="shape-container">
+        <img class="card-img-top" src="{% if news.photo %} {{ news.photo.url }} {% else %} /static/lowbono_cms/assets/svg/logos/logo-lowbono.svg {% endif %}" alt="{{news.title}}">
+        <div class="shape shape-bottom zi-1" style="margin-bottom: -.25rem">
+          <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 1920 100.1">
+            <path fill="#fff" d="M0,0c0,0,934.4,93.4,1920,0v100.1H0L0,0z"></path>
+          </svg>
+        </div>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">
+          <a class="text-dark" href="/news/{{news.slug}}">{{news.title}}</a>
+        </h3>
+        {{news.content|safe|striptags|truncatewords:50}}
+      </div>
+
+      <div class="card-footer">
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0 avatar-group avatar-group-xs">
+            <a class="avatar avatar-xs avatar-circle" data-bs-toggle="tooltip" data-bs-placement="top"
+              aria-label="{{news.author}}" data-bs-original-title="{{news.author}}">
+              <img class="avatar avatar-circle" src="/static/lowbono_cms/assets/img/logo-lowbono-blog.png" alt="{{news.author}}">
+            </a>
+          </div>
+          <div class="flex-grow-1">
+            <div class="d-flex justify-content-end">
+              <p class="card-text"><i class="bi-clock"></i> {{news.created_at|timesince}} ago</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>

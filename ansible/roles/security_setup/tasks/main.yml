@@ -1,0 +1,14 @@
+- name: System Update
+  include_tasks: system_updates.yml
+
+- name: Install Essential Packages
+  include_tasks: essential_packages.yml
+
+- name: Setup SSH Security
+  include_tasks: ssh_security.yml
+
+- name: Setup UFW Firewall
+  include_tasks: ufw_firewall.yml
+
+- name: Setup Fail2Ban
+  include_tasks: fail2ban.yml

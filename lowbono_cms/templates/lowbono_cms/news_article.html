@@ -1,0 +1,44 @@
+{% extends "lowbono_cms/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cms_tags sekizai_tags %}
+
+{% block content %}
+<div class="container content-space-2 content-space-lg-3">
+  <div class="w-lg-65 mx-lg-auto">
+    <div class="mb-4">
+      <h1 class="h2">{{news.title}}</h1>
+      
+    </div>
+
+    <div class="row align-items-sm-center mb-5">
+      <div class="col-sm-7 mb-4 mb-sm-0">
+        <div class="d-flex align-items-center">
+          <div class="flex-shrink-0">
+            <img class="avatar avatar-circle" src="/static/lowbono_cms/assets/img/logo-lowbono-blog.png" alt="LowBono">
+          </div>
+
+          <div class="flex-grow-1 ms-3">
+            <h5 class="mb-0">
+              {{news.author}}
+            </h5>
+            <span class="d-block small"><i class="bi-clock"></i> {{news.created_at|timesince}} ago</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% if news.photo %}
+    <img class="img-fluid rounded-lg" src="{{ news.photo.url }}" alt="{{news.title}}">
+    {% endif %}
+    <p>
+      {{news.content|safe}}
+    </p>
+    {% if request.user.is_staff %}
+    <a href="/news/" class="btn btn-primary btn-xs" target="_blank">View All <i class="bi-box-arrow-up-right ms-1"></i></a>
+    <a href="/admin/lowbono_app/newsarticles/{{news.pk}}/change/" class="btn btn-secondary btn-xs" target="_blank"><i class="bi-pencil"></i> Edit Blog</a>
+      {% endif %}
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+{% block content %}
+
+{% if object.is_on_vacation %}
+  <div class="alert alert-soft-danger" role="alert">
+    Referrals are paused because you're on vacations. Please, <a href="{% url 'vacations' object.id %}" class="alert-link">click to update vacation status</a>
+  </div>
+{% endif %}
+
+{% if object.lawyer_user %}
+  {% if not object.lawyer_user.is_profile_complete %}
+    <div class="alert alert-soft-danger" role="alert">
+      Attorney referrals are paused because your attorney profile is not complete. Please, <a href="{% url 'user-update' id=object.id %}" class="alert-link">click to update profile</a>
+    </div>
+  {% endif %}
+{% endif %}
+
+{% if object.mediator_user %}
+  {% if not object.mediator_user.is_profile_complete %}
+    <div class="alert alert-soft-danger" role="alert">
+      Mediator referrals are paused because your mediator profile is not complete. Please, <a href="{% url 'user-update' id=object.id %}" class="alert-link">click to update profile</a>
+    </div>
+  {% endif %}
+{% endif %}
+
+<div class="card mb-5">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">
+        <span class="avatar avatar-xl avatar-circle mb-5">
+          <img class="avatar-img" src="{% if object.photo %} {{ object.photo.url }} {% endif %}" alt="{{ object.first_name}} {{ object.last_name }}">
+        </span>
+        {% if object.id == request.user.id %}
+          <a href="{% url 'user-update' id=object.id %}" class="btn btn-sm btn-primary">Edit Details</a>
+        {% endif %}
+      </div>
+      <div class="col-md-10">
+        <div class="row">
+          <div class="col-md-2"><p><small>Name:</small></p></div>
+          <div class="col-md-10"><p>{{ object.first_name}} {{ object.last_name }}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2"><p><small>Email:</small></p></div>
+          <div class="col-md-10"><p>{{ object.email}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2"><p><small>Phone:</small></p></div>
+          <div class="col-md-10"><p>{{ object.phone.as_national}}</p></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2"><p><small>Your Bio:</small></p></div>
+          <div class="col-md-10">{{ object.bio | safe }}</div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2"><p><small>Firm Name:</small></p></div>
+          <div class="col-md-10"><p>{{ object.firm_name}}</p></div>
+        </div>
+        <div class="row">
+          <div class="col-md-2"><p><small>Address:</small></p></div>
+          <div class="col-md-10"><p>{{ object.address}}</p></div>
+        </div>
+        <hr>
+        <div class="row">
+          <div class="col-md-2"><p><small>Bar Licenses:</small></p></div>
+          <div class="col-md-10">
+            {% for admission in object.bar_admissions.all %}
+            <li>{{ admission.state|beautify_bar_location_code }} in {{ admission.admission_date | date:'Y' }}, Bar Number: {{ admission.bar_number }}</li>
+            {% endfor %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% if object.lawyer_user %}
+<div class="card mb-5">
+  <div class="card-header border-bottom">
+    <h4 class="card-header-title">Your Practice Areas (Lawyer)</h4>
+  </div>
+  <div class="card-body">
+    {% if object.lawyer_user.lawyerpracticeareas_set.all %}
+      {% for practice_area in object.lawyer_user.lawyerpracticeareas_set.all %}
+        <div class="row">
+          <div class="col-md-9"><p>{{ practice_area.practicearea.title }} ({{ practice_area.practicearea.parent.title }})</p></div>
+          <div class="col-md-3">
+            {% if not practice_area.approved %}
+              <p><small><i class="bi bi-folder-check"></i> Waiting Approval</small></p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="row">
+        <p>You have not added any lawyer practice areas. Please <a href="{% url 'user-update' id=object.id %}">edit profile</a> to add new practice areas.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% if object.mediator_user %}
+<div class="card mb-5">
+  <div class="card-header border-bottom">
+    <h4 class="card-header-title">Your Mediation Type</h4>
+  </div>
+  <div class="card-body">
+    {% if object.mediator_user.mediation_type %}
+        <div class="row">
+          <div class="col-md-9"><p>{{ object.mediator_user.mediation_type.get_name_display }}</p></div>
+        </div>
+    {% else %}
+      <div class="row">
+        <p>You have not selected any mediation type. Please <a href="{% url 'user-update' id=object.id %}">edit profile</a> to select mediation type.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+<div class="card mb-5">
+  <div class="card-header border-bottom">
+    <h4 class="card-header-title">Your Practice Areas (Mediator)</h4>
+  </div>
+  <div class="card-body">
+    {% if object.mediator_user.mediatorpracticeareas_set.all %}
+      {% for practice_area in object.mediator_user.mediatorpracticeareas_set.all %}
+        <div class="row">
+          <div class="col-md-9"><p>{{ practice_area.practicearea.title }} ({{ practice_area.practicearea.parent.title }})</p></div>
+          <div class="col-md-3">
+            {% if not practice_area.approved %}
+              <p><small><i class="bi bi-folder-check"></i> Waiting Approval</small></p>
+            {% endif %}
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <div class="row">
+        <p>You have not added any mediator practice areas. Please <a href="{% url 'user-update' id=object.id %}">edit profile</a> to add new practice areas.</p>
+      </div>
+    {% endif %}
+  </div>
+</div>
+{% endif %}
+
+{% if object.languages.all %}
+  <div class="card mb-5">
+    <div class="card-header border-bottom">
+      <h4 class="card-header-title">Additional Languages & Bio</h4>
+    </div>
+    <div class="card-body">
+      {% for language in object.languages.all %}
+        <div class="row">
+          <div class="col-md-2"><p><small>{{ language.language|beautify_language_code }}:</small></p></div>
+          <div class="col-md-10">{{ language.bio | safe }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
+
+{% endblock %}

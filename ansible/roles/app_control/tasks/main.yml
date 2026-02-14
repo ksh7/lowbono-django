@@ -1,0 +1,11 @@
+- name: Restart application
+  shell: "dokku ps:restart {{ web_app_name }}"
+
+- name: Stop application
+  shell: "dokku ps:stop {{ web_app_name }}"
+
+- name: Start application
+  shell: "dokku ps:start {{ web_app_name }}"
+
+- name: Rebuild application
+  shell: "dokku ps:rebuild {{ web_app_name }}"

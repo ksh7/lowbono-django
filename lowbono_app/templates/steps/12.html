@@ -1,0 +1,61 @@
+{% extends "lowbono_cms/default.html" %}
+{% load django_bootstrap5 %}
+{% load crispy_forms_tags %}
+{% load i18n %}
+{% load custom_template_filters %}
+{% load static %}
+
+{% block content %}
+<div class="container content-space-t-3 ">
+  <div class="w-lg-{{ step.width }} mx-auto">
+    {% bootstrap_messages %}
+    <div>
+      <h4>{% if step.success %} {{ step.success | safe }} {% endif %}</h4>
+      <p><small>We will notify the {{profile_type}} about your case. However, We recommend that you reach out to {{profile_type}} {{ professional.name }} to arrange your consultation on contact details provided below.</small></p>
+    </div>
+
+    <div class="card mt-5">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="avatar avatar-xl avatar-circle">
+              <img class="avatar-img" src="{% if professional.photo %} {{ professional.photo.url }} {% endif %}" alt="{{professional.get_full_name}}">
+            </span>
+          </div>
+          <div class="col">
+            <span class="float-end"><i class="bi-envelope me-1"></i> <strong>{{professional.email}}</strong> </span><br>
+            <span class="float-end"><i class="bi-phone me-1"></i> <strong>{{professional.phone.as_national}}</strong> </span>
+          </div>
+        </div>
+        <div class="row mt-2">
+          <span><strong>{{professional.get_full_name}}</strong></span>
+          <div class="text-muted small">
+            <i class="bi-geo-alt me-1"></i> {{professional.address}}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <p class="card-text text-dark" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden;">{{professional.bio|safe}}</p>
+        </div>
+        <div class="row mt-5">
+          <div class="col-sm-12 col-lg-4 mb-3 mb-md-0"><span><i class="bi-briefcase me-1"></i> <strong>Experience</strong> <br> {% for bar in professional.bar_admissions.all %} {{bar.state|beautify_bar_location_code}} since {{bar.admission_date|date:'Y'}} <br> {% endfor %}</span></div>
+          <div class="col-sm-12 col-lg-4 mb-3 mb-md-0"><span><i class="bi-translate me-1"></i> <strong>Languages</strong> <br> English <br> {% for lang in professional.get_languages_display %} {{lang}} <br> {% endfor %}</span></div>
+          <div class="col-sm-12 col-lg-4"><span><i class="bi-building me-1"></i> <strong>Law Firm</strong> <br>{{professional.firm_name}}</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-10 mt-5">
+      {% if step.after.note %}
+        <p><small>{{ step.after.note | safe }}</small></p>
+      {% endif %}
+      <div class="d-flex justify-content-end">
+        {% if step.finish %}
+          {% bootstrap_button step.finish button_class="btn-info" button_type="link" href='/' %}
+        {% endif %}
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

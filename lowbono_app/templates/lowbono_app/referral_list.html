@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+{% block heading %}All Referral Matters{% endblock %}
+
+{% block content %}
+
+{% if professional.is_on_vacation %}
+  <div class="alert alert-soft-danger" role="alert">
+    Referrals are paused because you're on vacations. Please, <a href="{% url 'vacations' professional.id %}" class="alert-link">click to update vacation status</a>
+  </div>
+{% endif %}
+
+{% for app_matter in matters %}
+  {% if app_matter.profile_exists and not app_matter.is_profile_complete %}
+    {% with template_name=app_matter.profile_incomplete_template %}
+      {% include template_name with professional=professional professional_type=app_matter.professional_type only %}
+    {% endwith %}
+  {% endif %}
+{% endfor %}
+
+{% for app_matter in matters %}
+  {% if app_matter.overdue %}
+    {% with template_name=app_matter.template %}
+      {% include template_name with overdue_matters=app_matter.overdue professional_type=app_matter.professional_type only %}
+    {% endwith %}
+  {% endif %}
+{% endfor %}
+
+{% for app_matter in matters %}
+  {% if app_matter.pending %}
+    {% with template_name=app_matter.template %}
+      {% include template_name with pending_matters=app_matter.pending professional_type=app_matter.professional_type only %}
+    {% endwith %}
+  {% endif %}
+{% endfor %}
+
+{% for app_matter in matters %}
+  {% if app_matter.closed %}
+    {% with template_name=app_matter.template %}
+      {% include template_name with closed_matters=app_matter.closed professional_type=app_matter.professional_type only %}
+    {% endwith %}
+  {% endif %}
+{% endfor %}
+
+{% endblock %}

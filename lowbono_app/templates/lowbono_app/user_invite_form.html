@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block heading %}Invite User{% endblock %}
+
+{% block content %}
+
+<form method="post" action="">
+    {% csrf_token %}
+    
+    {% bootstrap_form form %}
+    {% bootstrap_button button_type="submit" content="Invite" %}
+</form>
+
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load i18n %}
+
+{% block content %}
+
+  
+      <form action="" method="POST" class="form">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label class="form-label" for="email">{% translate "Email" %}</label>
+          <input type="text" name="email" maxlength="64" class="form-control" placeholder="Email" required id="email">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="password">{% translate "Password" %}</label>
+          <input type="password" name="password" maxlength="64" class="form-control" placeholder="Password" required id="password">
+        </div>
+
+
+        {% bootstrap_button button_type="submit" content="Login" %}
+        {% bootstrap_button button_type="reset" content="Cancel" %}
+        <div class="mt-6">
+          <a href="{% url 'reset_password' %}" class="btn btn-primary">Forgot Password?</a>
+        </div>
+
+      </form>
+
+{% endblock %}

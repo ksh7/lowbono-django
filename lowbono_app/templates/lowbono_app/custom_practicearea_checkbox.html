@@ -1,0 +1,34 @@
+{% load custom_template_filters %}
+{% with id=widget.attrs.id %}
+  <div{% if id %} id="{{ id }}"{% endif %}{% if widget.attrs.class %} class="{{ widget.attrs.class }}"{% endif %}>
+    <div class="accordion">
+    {% for group, options, index in widget.optgroups %}
+      {% if group %}
+        <div class="accordion-item">
+        <div class="accordion-header" id="heading{{index}}{{index}}">
+          {% if index == 0 %}
+            <a class="accordion-button" role="button" data-bs-toggle="collapse" data-bs-target="#collapse{{index}}{{index}}" aria-expanded="true" aria-controls="collapse{{index}}{{index}}" style="color: #21325b; font-weight: 200;">{{ group }} {% if options|count_selected_options %}<small style="margin-left: 5px;">({{ options|count_selected_options }} selected)</small>{% endif %}</a>
+          {% else %}
+            <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse{{index}}{{index}}" aria-expanded="false" aria-controls="collapse{{index}}{{index}}" style="color: #21325b; font-weight: 200;">{{ group }} {% if options|count_selected_options %} <small style="margin-left: 5px;">({{ options|count_selected_options }} selected)</small>{% endif %}</a>
+          {% endif %}
+        </div>
+        {% if index == 0 %}
+        <div id="collapse{{index}}{{index}}" class="accordion-collapse collapse show" aria-labelledby="heading{{index}}{{index}}" data-bs-parent="#accordionPracticeAreaChoices">
+        {% else %}
+        <div id="collapse{{index}}{{index}}" class="accordion-collapse collapse" aria-labelledby="heading{{index}}{{index}}" data-bs-parent="#accordionPracticeAreaChoices">
+        {% endif %}
+        <div class="accordion-body">
+      {% endif %}
+      
+      {% for option in options %}
+        <div>
+          {% include option.template_name with widget=option %}
+        </div>
+      {% endfor %}
+      
+      {% if group %}
+        </div></div></div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endwith %}

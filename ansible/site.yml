@@ -1,0 +1,27 @@
+- name: Server Security Setup
+  import_playbook: security_setup.yml
+  tags: ["security-setup"]
+
+- name: Dokku Server Setup
+  import_playbook: dokku_server_setup.yml
+  tags: ["dokku-server-setup"]
+
+- name: Cloudflare Tunnel Setup
+  import_playbook: cloudflare_setup.yml
+  tags: ["cloudflare-setup"]
+
+- name: Dokku App Setup
+  import_playbook: dokku_app_setup.yml
+  tags: ["dokku-app-setup"]
+
+- name: App Scale
+  import_playbook: app_scale.yml
+  tags: ["dokku-app-scale"]
+
+- name: App Status
+  import_playbook: app_status.yml
+  tags: ["dokku-app-status"]
+
+- name: Create User
+  import_playbook: create_user.yml
+  tags: ["never", "create-user"]

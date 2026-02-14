@@ -1,0 +1,7 @@
+- name: Dokku Server Setup
+  hosts: web_server
+  become: yes
+  gather_facts: yes
+
+  roles:
+    - role: cloudflare_setup

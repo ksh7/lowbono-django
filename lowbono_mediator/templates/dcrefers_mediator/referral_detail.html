@@ -1,0 +1,21 @@
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+<hr>
+<p><span class="fw-semi-bold">Other Party Contact Details</span></p>
+<div class="row">
+  <div class="col-md-3"><p><small>Other Party's Name:</small></p></div>
+  <div class="col-md-9"><p>{% if object.mediator_referral.other_party_first_name and object.mediator_referral.other_party_last_name %} {{ object.mediator_referral.other_party_first_name }} {{ object.mediator_referral.other_party_last_name }} {% elif object.mediator_referral.other_party_first_name %} {{ object.mediator_referral.other_party_first_name }} {% elif object.mediator_referral.other_party_last_name %} {{ object.mediator_referral.other_party_last_name }} {% else %} - {% endif %}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Other Party's Email:</small></p></div>
+  <div class="col-md-9"><p>{% if object.mediator_referral.other_party_email %}{{ object.mediator_referral.other_party_email }}{% else %}-{% endif %}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Other Party's Phone:</small></p></div>
+  <div class="col-md-9"><p>{% if object.mediator_referral.other_party_phone %}{{ object.mediator_referral.other_party_phone }}{% else %}-{% endif %}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Other Party's Address:</small></p></div>
+  <div class="col-md-9"><p>{% if object.mediator_referral.other_party_address %}{{ object.mediator_referral.other_party_address }}{% else %}-{% endif %}</p></div>
+</div>

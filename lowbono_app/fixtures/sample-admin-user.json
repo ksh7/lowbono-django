@@ -1,0 +1,28 @@
+[
+    {
+      "model": "lowbono_app.user",
+      "pk": 1,
+      "fields": {
+        "email": "admin@lowbono.org",
+        "password": "pbkdf2_sha256$720000$kBAV72zVkoaBCjBzLhftwy$op/ujLEuCaDkvKYUkIqaCYeKHt4yd5MWz4I7N9+HwGY=",
+        "username": "admin_lowbono",
+        "is_superuser": true,
+        "is_staff": true,
+        "is_active": true,
+        "first_name": "Admin",
+        "last_name": "LowBono"}
+    },
+    {
+      "model": "lowbono_app.user",
+      "pk": 2,
+      "fields": {
+        "email": "staff@lowbono.org",
+        "password": "pbkdf2_sha256$720000$kBAV72zVkoaBCjBzLhftwy$op/ujLEuCaDkvKYUkIqaCYeKHt4yd5MWz4I7N9+HwGY=",
+        "username": "staff_lowbono",
+        "is_superuser": false,
+        "is_staff": true,
+        "is_active": true,
+        "first_name": "Staff",
+        "last_name": "LowBono"}
+    }
+]

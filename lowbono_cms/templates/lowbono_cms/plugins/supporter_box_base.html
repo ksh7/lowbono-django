@@ -1,0 +1,7 @@
+<div class="row">
+  {% for child in instance.child_plugin_instances %}
+  <div class="col text-center py-3">
+    <img class="avatar avatar-lg avatar-4x3" src="{{child.brand_image.url}}"  alt="{{child.brand_name}}">
+  </div>
+  {% endfor %}
+</div>

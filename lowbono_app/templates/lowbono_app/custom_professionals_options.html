@@ -1,0 +1,39 @@
+
+{% load custom_template_filters %}
+{% load static %}
+
+  {% block aria-label %}
+  {% endblock %}
+  <div class="row">
+    <div class="col-sm-1"></div>
+    <div class="col-sm-10">
+      <div class="card-body">
+        <div class="row">
+          <div class="col">
+            <span class="avatar avatar-xl avatar-circle">
+              <img class="avatar-img" src="{% if widget.label.photo %} {{ widget.label.photo.url }} {% endif %}" alt="{{widget.label.get_full_name}}">
+            </span>
+          </div>
+          <div class="col">
+            {% block btn_title %}
+            {% endblock %}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <span><strong>{{widget.label.get_full_name}}</strong></span>
+          <div class="text-muted small">
+            <i class="bi-geo-alt me-1"></i> {{widget.label.address}}
+          </div>
+        </div>
+        <div class="row mt-2">
+          <p class="card-text text-dark" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden;">{{widget.label.bio|safe}}</p>
+        </div>
+        <div class="row mt-5">
+          <div class="col-sm-12 col-lg-4 mb-3 mb-md-0"><span><i class="bi-briefcase me-1"></i> <strong>Experience</strong> <br> {% for bar in widget.label.bar_admissions.all %} {{bar.state|beautify_bar_location_code}} since {{bar.admission_date|date:'Y'}} <br> {% endfor %}</span></div>
+          <div class="col-sm-12 col-lg-4 mb-3 mb-md-0"><span><i class="bi-translate me-1"></i> <strong>Languages</strong> <br> English <br> {% for lang in widget.label.get_languages_display %} {{lang}} <br> {% endfor %}</span></div>
+          <div class="col-sm-12 col-lg-4"><span><i class="bi-building me-1"></i> <strong>Law Firm</strong> <br>{{widget.label.firm_name}}</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

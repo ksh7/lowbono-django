@@ -1,0 +1,26 @@
+<div class="accordion mb-10" id="accordion{{instance.name}}">
+  {% if not instance.child_plugin_instances and request.user.is_staff %}
+    <div class="card">
+      <div class="card-body">
+        <p>You've created an accordion base outline. Add accordion items by clicking on <strong>+</strong> icon on the right sidebar plugin named <strong>Accordion Base {{ instance.name }}</strong></p>
+        <small>Note: this suggestion will disappear once you add an item.</small>
+      </div>
+    </div>
+  {% else %}
+    {% for child in instance.child_plugin_instances %}
+      <div class="accordion-item">
+        <div class="accordion-header" id="heading{{child.id}}">
+          <a class="accordion-button collapsed" role="button" data-bs-toggle="collapse" data-bs-target="#collapse{{child.id}}" aria-expanded="false" aria-controls="collapse{{child.id}}">
+            {{child.heading}}
+          </a>
+        </div>
+        <div id="collapse{{child.id}}" class="accordion-collapse collapse" aria-labelledby="heading{{child.id}}" data-bs-parent="#accordion{{instance.name}}">
+          <div class="accordion-body">
+            <p>{{ child.description|safe }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+    
+  {% endif %}
+</div>

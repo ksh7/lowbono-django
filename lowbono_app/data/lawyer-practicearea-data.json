@@ -1,0 +1,750 @@
+[
+  {
+    "parent": {
+      "title": "Family",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Name Change",
+        "definition": "You want help changing your legal name."
+      },
+      {
+        "title": "Adoption",
+        "definition": "You want help moving parental rights over a child to new parents."
+      },
+      {
+        "title": "Child Guardianship",
+        "definition": "You want help appointing someone to manage the care, property, and finances of a child."
+      },
+      {
+        "title": "Separation Agreement",
+        "definition": "You and your spouse are thinking about living apart for a time while you decide if you'll be getting a divorce."
+      },
+      {
+        "title": "Contested Divorce",
+        "definition": "You and your spouse want to end your marriage."
+      },
+      {
+        "title": "Child Custody",
+        "definition": "You want help establishing who has the right to care for and make important decisions about a child."
+      },
+      {
+        "title": "Postnuptial Agreement",
+        "definition": "You and your spouse are looking for a document that clarifies each of your financial expectations."
+      },
+      {
+        "title": "Paternity",
+        "definition": "You want help establishing who the legal parent of a child is."
+      },
+      {
+        "title": "Alimony/Spousal Support",
+        "definition": "You want help determining what financial support one ex-spouse needs to provide the other."
+      },
+      {
+        "title": "Parental-Rights Termination",
+        "definition": "You want help with a court process  brought to end the rights of one or more parents over their child."
+      },
+      {
+        "title": "Emancipation",
+        "definition": "You want help with a court process brought to let a child assume responsibility for their own care, property, and finances."
+      },
+      {
+        "title": "Adult Guardianship",
+        "definition": "You want help appointing someone to manage the care, property, and finances of an adult who can't take care of themselves anymore."
+      },
+      {
+        "title": "Domestic Violence/Civil Order of Protection",
+        "definition": "You want protection from a person who is harrassing, threatening, abusing, or intimidating you."
+      },
+      {
+        "title": "Annulment",
+        "definition": "You want help ending a marriage that was not legitimate in the first place because of fraud, deceit, misunderstanding, or another issue."
+      },
+      {
+        "title": "Uncontested Divorce",
+        "definition": "You and your spouse want to end your marriage and already agree on how to deal with issues involving your property, finances, and children."
+      },
+      {
+        "title": "Child Support",
+        "definition": "You have an issue involving the financial support that a parent may owe to a child."
+      },
+      {
+        "title": "Prenuptial Agreement",
+        "definition": "You and your fiance are about to get married and are looking for a document that clarifies each of your financial expectations."
+      },
+      {
+        "title": "Harassment",
+        "definition": "You want to stop someone from abusing, threatening, stalking, or annoying you."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Business",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Contract Formation",
+        "definition": "You want help negotiating or drafting a business contract."
+      },
+      {
+        "title": "Business Dispute/Litigation",
+        "definition": "You want help with a legal dispute involving your business."
+      },
+      {
+        "title": "Business Formation",
+        "definition": "You are starting a business and want to structure your business to meet your goals."
+      },
+      {
+        "title": "Corporate Changes",
+        "definition": "You want help making a change in the structure, management, or ownership of your business corporation."
+      },
+      {
+        "title": "Contract Dispute",
+        "definition": "You want help with a legal dispute involving a business contract."
+      },
+      {
+        "title": "Online business law",
+        "definition": "You have an issue involving your internet or software business."
+      },
+      {
+        "title": "Licenses, corporate changes, and filings",
+        "definition": "You want help with a business organization or licensing matter, such as changing the legal structure or governance of your business or applying for a license to operate."
+      },
+      {
+        "title": "Government contracts",
+        "definition": "You want help drafting, negotiating, or applying for a government contract."
+      },
+      {
+        "title": "Compliance",
+        "definition": "You want help making sure your business is operating in accordance with federal, state, and/or local rules or laws."
+      },
+      {
+        "title": "Construction law",
+        "definition": "You have an issue or dispute involving the construction of a home or building, such as negotiating a contract with a builder or complying with construction laws."
+      },
+      {
+        "title": "Business Compliance",
+        "definition": "You want help understanding how your business's legal structure, government rules, contracts, or laws affect your business."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Consumer protection & debt",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Identity Theft",
+        "definition": "You want help with an issue involving someone stealing or misusing your personal information."
+      },
+      {
+        "title": "Credit Report Issue",
+        "definition": "You want help correcting an inaccuracy or other issue with your credit report."
+      },
+      {
+        "title": "Consumer Fraud",
+        "definition": "You have an issue involving unfair, deceptive, or misleading business practices."
+      },
+      {
+        "title": "Advertising and Unfair Banking Practices",
+        "definition": "You want help bringing a claim against a bank that acted in deceptive, abusive, or misleading ways."
+      },
+      {
+        "title": "Predatory Lending",
+        "definition": "You want help with an issue involving a loan that has abusive, deceptive, or unfair terms."
+      },
+      {
+        "title": "Consumer Finance Protection",
+        "definition": "You want help with unfair or deceptive practices related to a mortgage, credit card, and other financial product or service."
+      },
+      {
+        "title": "Debt Collection",
+        "definition": "You were contacted by a debt collector and want help responding."
+      },
+      {
+        "title": "Student loan",
+        "definition": "You have an issue involving loans you took out to pay for education."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Estates, Wills, & Elder Law",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Living Will/Advanced Directive",
+        "definition": "You are looking for documents that set out your wishes for end-of-life medical care."
+      },
+      {
+        "title": "Trust",
+        "definition": "You want a document for managing and distributing your property on behalf of one or more beneficiaries."
+      },
+      {
+        "title": "Power of Attorney",
+        "definition": "You want a document that appoints someone to manage your care, property, and finances if you become unable to."
+      },
+      {
+        "title": "Guardianship",
+        "definition": "You want help appointing someone to manage the care, property, and finances of a person."
+      },
+      {
+        "title": "Will",
+        "definition": "You want documents that set out your wishes for what happens to your property when you pass."
+      },
+      {
+        "title": "Probate",
+        "definition": "You want help with the court process used to decide the inheritance, management, or division of the property of someone who passed away."
+      },
+      {
+        "title": "Simple Trust",
+        "definition": "You want a document that distributes income from your estate to beneficiaries immediately, instead of accruing savings and distributing income to beneficiaries at a later date."
+      },
+      {
+        "title": "Estate Planning",
+        "definition": "You want documents that set out your wishes for your medical care and what happens to your property when you pass."
+      },
+      {
+        "title": "Medicaid Special Needs Trust",
+        "definition": "You want a docmument that holds funds for the benefit of a disabled person without impacting their eligibility for Medicaid."
+      },
+      {
+        "title": "Elder abuse/neglect",
+        "definition": "You have an issue involving the mistreatment of an elderly adult."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Landlord/tenant",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Tenant Representation",
+        "definition": "You are a tenant and want help with an issue involving your home."
+      },
+      {
+        "title": "Landlord Representation",
+        "definition": "You are a landlord and want help with an issue involving your property."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Immigration",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Naturalization",
+        "definition": "You want to apply for citizenship."
+      },
+      {
+        "title": "Asylum",
+        "definition": "You don't want to return to your home country because you're afraid you'll be badly treated there."
+      },
+      {
+        "title": "Violence Against Women Act Petition",
+        "definition": "You want to become a permanent resident, and you or your child have been the victim of abuse."
+      },
+      {
+        "title": "T Visa",
+        "definition": "You want to remain and work in the United States, and you or your family member were forced or tricked into performing work or sexual acts."
+      },
+      {
+        "title": "Deportation Defense",
+        "definition": "You want to defend against the government trying to remove you from the United States."
+      },
+      {
+        "title": "Employment-Based Visas",
+        "definition": "You want to come to or stay in the United States for a limited, work-related purpose."
+      },
+      {
+        "title": "Family-Based Visas",
+        "definition": "You want to become a permanent resident on the basis of your family relationship or employment status."
+      },
+      {
+        "title": "Special Immigrant Juveniles Status (SIJS)",
+        "definition": "You want help with an issue involving an undocumented immigrant who arrived in the United States at a young age, was mistreated by a parent, and wants to apply for legal residency."
+      },
+      {
+        "title": "U Visas",
+        "definition": "You want to remain and work in the United States, and you or your child have been the victim of a serious crime."
+      },
+      {
+        "title": "DACA",
+        "definition": "You came to the United States as a child and want to stay in the country."
+      },
+      {
+        "title": "Criminal Charges Affecting Status",
+        "definition": "You want help with a criminal issue that may impact your ability to remain in the United States."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Criminal & Traffic",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Traffic Ticket",
+        "definition": "You want help with a traffic offense."
+      },
+      {
+        "title": "RICO & Conspiracy",
+        "definition": "You want help with a criminal issue involving an allegation of participation in a criminal organization."
+      },
+      {
+        "title": "DUI",
+        "definition": "You want help with a criminal issue or allegation involving driving a car or other kind of motor vehicle while under the influence of drugs or alcohol."
+      },
+      {
+        "title": "Ordinance Violations/Fines",
+        "definition": "You have an issue involving an alleged violation of city laws or regulations."
+      },
+      {
+        "title": "Criminal Record Expungement",
+        "definition": "You want to remove a charge or conviction from your criminal record."
+      },
+      {
+        "title": "Criminal Felonies",
+        "definition": "You want help with a criminal issue involving the chance of more than a year of imprisonment (for example: assault, aggravated battery, burglary, homicide)."
+      },
+      {
+        "title": "Criminal Misdemeanors",
+        "definition": "You want help with a criminal issue involving the chance of less than a year of imprisonment (for example: disorderly conduct, public intoxication, theft, trespassing)."
+      },
+      {
+        "title": "Post-Conviction Appeals & Relief",
+        "definition": "You have been convicted of a crime and want help getting a new trial, reduced penalty, or shorter sentence."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Civil litigation - auto damage, contracts, collections",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Personal Property Cases (Non-Small Claims)",
+        "definition": "You want help with a legal dispute involving personal property that's value makes the dispute ineligible for small claims court."
+      },
+      {
+        "title": "Class action",
+        "definition": "You want help bringing a lawsuit against a person, company, organization, or government agency that caused injuries, financial losses, or other kinds of harms that affected a large group of people."
+      },
+      {
+        "title": "General",
+        "definition": "You want help with court litigation in a non-criminal matter."
+      },
+      {
+        "title": "Auto fraud/auto repossessions",
+        "definition": "You want to be compensated because you purchased a car with hidden defects, or you want to keep your car from being wrongfully repossessed."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Employment",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Contesting Non-Competes",
+        "definition": "You need help contesting an agreement with a former employer that restricts you from working."
+      },
+      {
+        "title": "Workplace Harassment",
+        "definition": "You want to stop someone at your workplace from abusing, threatening, or annoying you."
+      },
+      {
+        "title": "Wage Theft/Unpaid Benefits",
+        "definition": "You have an issue involving benefits or compensation that you may be owed by an employer."
+      },
+      {
+        "title": "Wrongful Discrimination in Workplace",
+        "definition": "You are being treated unfairly by an employer because of your race, gender, religion, national origin, physical or mental disability, age, sexual orientation, or gender identity."
+      },
+      {
+        "title": "Severance agreements",
+        "definition": "You want help drafting or reviewing an agreement that terminates the working relationship between an employer and employee."
+      },
+      {
+        "title": "Workers compensation",
+        "definition": "You have an issue involving benefits or compensation that you may be owed or may owe because of a job-related illness or injury."
+      },
+      {
+        "title": "Defense of the employee",
+        "definition": "You are an employee and are seeking to defend yourself against a claim brought by your current or former employer."
+      },
+      {
+        "title": "Defense of the employer",
+        "definition": "You are an employer and are seeking to defend yourself against a claim brought by a current or former employee."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Real Estate",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Real Estate Disputes",
+        "definition": "You want help with a legal dispute involving real estate."
+      },
+      {
+        "title": "Homeowners Association Dispute",
+        "definition": "You are a homeowner and want help with a legal dispute with a homeowners association."
+      },
+      {
+        "title": "Title",
+        "definition": "You want help with an issue involving your rights in a home, building, or other piece of property."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Tax",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Lien",
+        "definition": "You want help with an issue involving a government claim on your property because of allegedly unpaid taxes."
+      },
+      {
+        "title": "Criminal Tax Matter",
+        "definition": "You want help with a criminal issue involving your taxes."
+      },
+      {
+        "title": "Tax Court Filing",
+        "definition": "You want help with the special court process related to challenging or responding to tax issues."
+      },
+      {
+        "title": "Penalty Abatement",
+        "definition": "You want to request penalties related to unpaid or unfiled taxes."
+      },
+      {
+        "title": "Tax Fraud & Tax Evasion",
+        "definition": "You want help with an issue involving an allegation or claim of intentionally avoiding taxes."
+      },
+      {
+        "title": "Audit",
+        "definition": "You want help with an issue involving a goverment reveiw of your tax return's accuracy and completeness."
+      },
+      {
+        "title": "Appeal",
+        "definition": "You want to challenge a government decision about your taxes."
+      },
+      {
+        "title": "Collection matter",
+        "definition": "You want help with an issue involving taxes the government claims you owe it."
+      },
+      {
+        "title": "Levy",
+        "definition": "You want help with an issue involving the government taking your property to satisfy a debt or taxes you allegedly owe."
+      },
+      {
+        "title": "Wage Garnishment",
+        "definition": "You want help with an issue involving the goverment deducting money from your wages because of allegedly unpaid taxes."
+      },
+      {
+        "title": "Payment Agreement",
+        "definition": "You want help reaching an agreement with the goverment to pay a tax debt in monthly installments, instead of having to pay all at once."
+      },
+      {
+        "title": "Payroll Tax",
+        "definition": "You want help with an issue involving taxes related to employment."
+      },
+      {
+        "title": "Employee Reclassification",
+        "definition": "You want to reduce tax penalties you may owe by voluntarily reclassifying independent contractors who work for your business as employees."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Insurance",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Representation of Insured",
+        "definition": "You want help challenging the practices of your insurance company."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Alternative dispute resolution",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Arbitration",
+        "definition": "You want help with the binding process where a neutral third party resolves a dispute between you and another party."
+      },
+      {
+        "title": "Mediation",
+        "definition": "You want help with the non-binding process where a neutral third party helps you and another party try to resolve a dispute and potentially avoid court litigation."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Civil rights",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Government Record",
+        "definition": "You want help getting the information or records from the government."
+      },
+      {
+        "title": "Constitutional Right",
+        "definition": "You want help because the government, a private organization, or a person violated your constitutional rights (for example: free expression, privacy, reproductive rights)."
+      },
+      {
+        "title": "Discrimination",
+        "definition": "You are being treated unfairly by the goverment, a private organization, or person because of your race, gender, religion, national origin, physical or mental disability, age, sexual orientation, or gender identity."
+      },
+      {
+        "title": "Government misconduct",
+        "definition": "You want help because you were harmed or mistreated by a government official or agency."
+      },
+      {
+        "title": "Police misconduct",
+        "definition": "You want help because you were harmed or mistreated by a police officer."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Foreclosure",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Unlawful foreclosure",
+        "definition": "You want help defending your property against a foreclosure threat that's based on bad information, disclosure failures, or fraud."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Nonprofit",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Nonprofit Formation",
+        "definition": "You are starting a nonprofit and want to structure the organization to meet your goals."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Personal injury",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Medical malpractice",
+        "definition": "You want help because a doctor or other kind of health care provider made mistakes that caused an injury."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Juvenile Delinquency",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Administrative law",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Government benefits",
+        "definition": "You have an issue involving benefits or compensation that the government may owe you."
+      },
+      {
+        "title": "Unemployment benefits",
+        "definition": "You have an issue involving money that may be owed by you or to you because of unemployed status."
+      },
+      {
+        "title": "SSI/Disability",
+        "definition": "You have an issue involving benefits the government may owe you because of a physical or mental issue or disability."
+      },
+      {
+        "title": "Veteran benefits",
+        "definition": "You have an issue involving benefits the government may owe you because of your military service."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Bankruptcy",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "General bankruptcy",
+        "definition": "You want help getting rid of debts you owe."
+      },
+      {
+        "title": "Fraud-related bankruptcy",
+        "definition": "You have an issue involving an allegation that you misled or intentionaly hid information when you filed for bankruptcy."
+      },
+      {
+        "title": "Foreclosure-related bankruptcy",
+        "definition": "You want help defending your property against a foreclosure and getting rid of your debts."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Intellectual Property",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Copyrights, trademarks, or patents",
+        "definition": "You have an issue involving the rights to an invention, creative work, or phrase or symbol."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Education law",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Special education",
+        "definition": "You have an issue involving the education of a child with a learning disability or other special needs."
+      },
+      {
+        "title": "General",
+        "definition": "You have an issue involving school rules or the laws related to education."
+      },
+      {
+        "title": "School discipline",
+        "definition": "You have an issue involving a school punishing or penalizing a student for alleged misconduct."
+      },
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  },
+  {
+    "parent": {
+      "title": "Appeals",
+      "definition": ""
+    },
+    "children": [
+      {
+        "title": "Other",
+        "definition": "You have an issue that wasn\u2019t described above, or you don't know what issue to choose."
+      }
+    ]
+  }
+]

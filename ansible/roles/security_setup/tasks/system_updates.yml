@@ -1,0 +1,45 @@
+- name: Enable automatic security updates
+  apt:
+    name: unattended-upgrades
+    state: present
+    update_cache: yes
+
+- name: Configure unattended-upgrades
+  lineinfile:
+    path: /etc/apt/apt.conf.d/20auto-upgrades
+    line: "{{ item }}"
+    create: yes
+  loop:
+    - 'APT::Periodic::Update-Package-Lists "1";'
+    - 'APT::Periodic::Unattended-Upgrade "1";'
+
+- name: Copy reboot script
+  copy:
+    src: reboot.sh
+    dest: /usr/local/sbin/reboot.sh
+
+- name: Make reboot script executable
+  file:
+    dest: /usr/local/sbin/reboot.sh
+    mode: +x
+
+- name: Reboot at 5am if needed for update completion
+  cron:
+    name: "security reboot"
+    hour: 5
+    job: "/usr/local/sbin/reboot.sh"
+
+- name: Update and upgrade system packages
+  apt:
+    update_cache: yes
+    upgrade: yes
+    autoremove: yes
+    autoclean: yes
+    cache_valid_time: 3600
+  retries: 10
+  delay: 30
+  register: result
+  until: result is succeeded
+  vars:
+    ansible_command_timeout: 1800
+    ansible_ssh_timeout: 1800

@@ -1,0 +1,8 @@
+{% load static %}
+<div class="card card-bordered" style="max-width: 20rem;">
+  <img class="card-img-top" src="{% if instance.photo %} {{ instance.photo.url }} {% endif %}" alt="Card image">
+  <div class="card-body">
+    <p class="card-text">{{ instance.description}}</p>
+    <a href="{{instance.button_url}}" class="btn btn-success">{{instance.button_text}} <i class="bi bi-arrow-right"></i></a>
+  </div>
+</div>

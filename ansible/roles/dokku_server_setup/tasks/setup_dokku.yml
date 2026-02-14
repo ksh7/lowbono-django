@@ -1,0 +1,38 @@
+- name: Check if Dokku is already installed
+  stat:
+    path: "{{ dokku.install_path }}"
+  register: dokku_installed
+
+- name: Download Dokku installation script
+  get_url:
+    url: "https://dokku.com/install/{{ dokku_version }}/bootstrap.sh"
+    dest: "{{ dokku.bootstrap_script_path }}"
+    mode: '0755'
+    timeout: 60
+  when: not dokku_installed.stat.exists
+
+- name: Install Dokku
+  shell: "DOKKU_TAG={{ dokku_version }} bash {{ dokku.bootstrap_script_path }}"
+  when: not dokku_installed.stat.exists
+  notify: cleanup dokku bootstrap
+
+- name: Wait for Dokku installation to complete
+  wait_for:
+    path: "{{ dokku.install_path }}"
+    timeout: 300
+  when: not dokku_installed.stat.exists
+
+- name: Check if SSH keys are already configured
+  shell: "dokku ssh-keys:list"
+  register: ssh_keys_list
+  changed_when: false
+  failed_when: false
+
+- name: Add SSH key for Dokku admin
+  shell: "cat {{ server_user_dir }}/.ssh/authorized_keys | dokku ssh-keys:add admin"
+  register: ssh_key_result
+  failed_when:
+    - ssh_key_result.rc != 0
+    - "'Fingerprint exists' not in ssh_key_result.stderr"
+    - "'already exists' not in ssh_key_result.stderr"
+  when: "'admin' not in ssh_keys_list.stdout"

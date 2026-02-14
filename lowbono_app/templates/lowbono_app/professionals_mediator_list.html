@@ -1,0 +1,50 @@
+{% load custom_template_filters %}
+{% if mediators|length > 0 %}
+  {% for mediator in mediators %}
+    <div class="card card-bordered mb-5" aria-label="Mediator: {{mediator.user.get_full_name}}" tabindex="0">
+      <div class="row">
+          <div class="card-body">
+            <div class="row">
+              <div class="col">
+                <span class="avatar avatar-xl avatar-circle">
+                  <img class="avatar-img" src="{% if mediator.user.photo %} {{ mediator.user.photo.url }} {% endif %}" alt="{{mediator.user.get_full_name}}">
+                </span>
+              </div>
+              <div class="col">
+                <span class="float-end"><i class="bi-envelope me-1"></i> {{mediator.user.email}} </span><br>
+                <span class="float-end"><i class="bi-phone me-1"></i> {{mediator.user.phone.as_national}} </span>
+                {% if request.user.is_staff %}
+                <br>
+                <span class="float-end">
+                  <a class="btn btn-sm btn-soft-primary mt-3" href="{% url 'admin:lowbono_app_user_change' mediator.user.id %}">View Details</a>
+                </span>
+                {% endif %}
+              </div>
+            </div>
+            <div class="row mt-2">
+              <span><strong>{{mediator.user.get_full_name}}</strong></span>
+              <div class="text-muted small">
+                <i class="bi-geo-alt me-1"></i> {{mediator.user.address}}
+              </div>
+            </div>
+            <div class="row mt-2">
+              <p class="card-text text-dark" style="display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 5; overflow: hidden;">{{mediator.user.bio|safe}}</p>
+            </div>
+            <div class="row mt-5">
+              <div class="col-sm-12 col-lg-4 mb-3 mb-md-0"><span><i class="bi-briefcase me-1"></i> <strong>Experience</strong> <br> {% for bar in mediator.user.bar_admissions.all %} {{bar.state|beautify_bar_location_code}} since {{bar.admission_date|date:'Y'}} <br> {% endfor %}</span></div>
+              <div class="col-sm-12 col-lg-4 mb-3 mb-md-0"><span><i class="bi-translate me-1"></i> <strong>Languages</strong> <br> English <br> {% for lang in mediator.user.get_languages_display %} {{lang}} <br> {% endfor %}</span></div>
+              <div class="col-sm-12 col-lg-4"><span><i class="bi-building me-1"></i> <strong>Law Firm</strong> <br>{{mediator.user.firm_name}}</span></div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <br/>
+  {% endfor %}    
+{% else %}
+<div class="card">
+  <div class="card-body">
+    <h3 class="card-text">No mediators available</h3>
+    <p class="card-text">There are no active mediator profiles as of now. Check again.</p>
+  </div>
+</div>
+{% endif %}

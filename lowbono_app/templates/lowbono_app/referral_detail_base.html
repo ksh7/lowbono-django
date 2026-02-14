@@ -1,0 +1,60 @@
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+
+<div class="row">
+  <div class="col-md-3"><p><small>Client Name:</small></p></div>
+  <div class="col-md-9"><p>{{ object.first_name }} {{object.last_name}}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Email:</small></p></div>
+  <div class="col-md-9"><p>{{ object.email }}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Phone:</small></p></div>
+  <div class="col-md-9"><p>{{ object.phone }}</p></div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3"><p><small>Monthly Income:</small></p></div>
+  <div class="col-md-9"><p>{% if object.monthly_income %} ${{ object.monthly_income }} {% else %} Not Provided{% endif %}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Income Status:</small></p></div>
+  <div class="col-md-9"><p>{{ object.income_status|beautify_income_status }}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Rates Provided:</small></p></div>
+  <div class="col-md-9">
+    <p>
+      {{ referral_workflow.is_income_eligible | beautify_attorney_provided_rates }}
+      {% if not referral_workflow.is_income_eligible %}<br>Reason: {{ referral_workflow.ineligible_reason}}{% endif %}
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Language:</small></p></div>
+  <div class="col-md-9"><p>{{ object.language|beautify_language_code }}</p></div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3"><p><small>Issue Description:</small></p></div>
+  <div class="col-md-9"><p>{% if object.issue_description %} {{ object.issue_description }} {% else %} - {% endif %}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Deadline Date:</small></p></div>
+  <div class="col-md-9"><p>{% if object.deadline_date %} {{ object.deadline_date }} {% else %} - {% endif %}</p></div>
+</div>
+<div class="row">
+  <div class="col-md-3"><p><small>Deadline Reason:</small></p></div>
+  <div class="col-md-9"><p>{% if object.deadline_reason %} {{ object.deadline_reason }} {% else %} - {% endif %}</p></div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3"><p><small>Address:</small></p></div>
+  <div class="col-md-9"><p>{{ object.address }}</p></div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3"><p><small>Can contact client?:</small></p></div>
+  <div class="col-md-9"><p>{% if object.contact_preference %} Yes {% else %} No {% endif %}</p></div>
+</div>

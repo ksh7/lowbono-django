@@ -1,0 +1,23 @@
+{% extends "lowbono_cms/base.html" %}
+{% load static %}
+{% load i18n %}
+{% load cms_tags sekizai_tags djangocms_alias_tags %}
+
+{% block content %}
+<div class="container content-space-t-2">
+  <div class="w-lg-75 text-center mx-lg-auto">
+    <div class="mb-5 mb-md-10 mt-10">
+      <h2>{% placeholder 'header_title' %}</h2>
+      {% placeholder 'header_description' %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-8">
+      {% placeholder 'left_column' %}
+    </div>
+    <div class="col-lg-4">
+      {% static_alias 'static_right_col_button_card' %}
+    </div>
+  </div>
+</div>
+{% endblock %}

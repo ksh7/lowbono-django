@@ -1,0 +1,2 @@
+# Load app configuration from 1Password
+web_app_name: "{{ onepassword_app_secrets.web_app_name }}"

@@ -1,0 +1,11 @@
+{% if object.is_on_vacation %}
+  <div class="alert alert-soft-danger" role="alert">
+    Referrals are paused because you're on vacations. Please, <a href="{% url 'vacations' object.id %}" class="alert-link">click to update vacation status</a>
+  </div>
+{% endif %}
+
+{% if object.is_profile_complete %}
+  <div class="alert alert-soft-danger" role="alert">
+    Referrals are paused because your profile is not complete. Please, <a href="{% url 'user-update' id=object.id %}" class="alert-link">click to update profile</a>
+  </div>
+{% endif %}

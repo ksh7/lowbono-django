@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% load django_bootstrap5 %}
+{% load custom_template_filters %}
+{% load static %}
+
+{% block heading %}Professionals{% endblock %}
+
+{% block content %}
+
+<div class="text-center">
+  <ul class="nav nav-segment nav-pills mb-7" role="tablist">
+    {% for app in professional_apps %}
+    <li class="nav-item">
+      <a class="nav-link {% if app.is_active %}active{% endif %}" id="nav-{{ app.app_name }}-tab" href="#{{app.app_name}}s" data-bs-toggle="pill" data-bs-target="#{{app.app_name}}s" role="tab" aria-controls="{{app.app_name}}s" aria-selected="{% if app.is_active %}true{% else %}false{% endif %}">{{app.professional_type}}s</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+<div class="tab-content">
+  {% for app in professional_apps %}
+  <div class="tab-pane fade {% if app.is_active %}show active{% endif %}" id="{{app.app_name}}s" role="tabpanel" aria-labelledby="{{app.app_name}}s-tab">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+        <form>
+          <div class="input-card mb-3">
+            <select class="form-select form-select-sm" id="{{ app.app_name }}" name="{{ app.app_name }}" hx-get="/professionals/get_professional_by_practicearea/" hx-trigger="change" hx-target="#{{app.app_name}}-professionals" required>
+              <option value="">Choose {{app.professional_type}} PracticeArea Category</option>
+              {% for practicearea in app.practiceareas %}
+                <option disabled>--- {{practicearea.title}} ---</option>
+                {% for pa in practicearea.children.all %}
+                  <option value="{{pa.id}}" {% if pa.id == app.selected_pa %} selected {% endif %}>{{pa.title}}</option>
+                {% endfor %}
+              {% endfor %}
+            </select>
+            <button class="btn btn-sm btn-outline-primary" type="submit">Filter {{app.professional_type}}s</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div id="{{app.app_name}}-professionals">
+      {% include 'lowbono_app/professional_detail.html' with professionals=app.professionals professional_type=app.professional_type only %}
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

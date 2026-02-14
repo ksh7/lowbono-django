@@ -1,0 +1,7 @@
+# Load app configuration from 1Password
+web_app_name: "{{ onepassword_app_secrets.web_app_name }}"
+
+# App Scale Config
+web_app_scale: "1"
+celery_worker_scale: "1"
+celery_llm_worker_scale: "1"

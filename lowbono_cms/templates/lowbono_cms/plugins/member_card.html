@@ -1,0 +1,12 @@
+{% load static %}
+<div class="d-flex align-items-center mb-2">
+  <div class="flex-shrink-0">
+    <img class="avatar avatar-lg avatar-circle" src="{% if instance.photo %} {{ instance.photo.url }} {% endif %}" alt="{{instance.name}}">
+  </div>
+  <div class="flex-grow-1 ms-3">
+    <a class="d-inline-block link-dark">
+      <h6 class="text-hover-primary mb-0">{{instance.name}}</h6>
+    </a>
+    <small class="d-block">{{instance.description|safe}}</small>
+  </div>
+</div>

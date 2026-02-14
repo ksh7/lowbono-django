@@ -1,0 +1,15 @@
+<form action="/go/3" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+{% if status == "moderate" %}
+<p>Based on the information you provided, you qualify for reduced rates from lawyers who scale their fees. Click Next to continue.</p>
+{% elif status == "high" %}
+<p>Based on the information you provided, you qualify for market rates. Click Next to continue.</p>
+{% elif status == "low" %}
+<p>Based on the information you provided, you may qualify for free legal assistance. To find organizations that provide additional assistance, you can visit <a href="www.lawhelp.org/dc"></a>www.lawhelp.org/dc</a>. You may also qualify for help from lawyers who charge reduced fees. If you would like to connect with a lawyer who charges fees, click Next.</p>
+<p></p>
+{% endif %}
+<a href="/go/4">Next</a>
+<a href="/go/4">Skip</a>

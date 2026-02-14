@@ -1,0 +1,118 @@
+[
+    {
+      "parent": {
+        "title": "Family",
+        "definition": ""
+      },
+      "children": [
+        {
+          "title": "Divorce/Separation",
+          "definition": "You want a mediator to help you and your spouse negotiate a divorce or separation agreement."
+        },
+        {
+          "title": "Child/Custody",
+          "definition": "You want a mediator to help you and your child’s other parent negotiate an agreement on issues like child support, custody, or co-parenting."
+        },
+        {
+          "title": "Other",
+          "definition": "You want a mediator to help negotiate a family dispute that is not included in another category, or you are not sure what to choose."
+        }
+      ]
+    },
+    {
+      "parent": {
+        "title": "Business & Contracts",
+        "definition": ""
+      },
+      "children": [
+        {
+          "title": "Business Dispute",
+          "definition": "You want a mediator to help negotiate a resolution to a dispute between you and someone with whom you’ve done business."
+        },
+        {
+          "title": "Business Partnership",
+          "definition": "You want a mediator to help negotiate resolution of a dispute between you and a business partner."
+        },
+        {
+          "title": "Breach of Contract",
+          "definition": "You want a mediator to help negotiate resolution of a dispute concerning terms of a contract that were not met."
+        },
+        {
+          "title": "Other",
+          "definition": "You want a mediator to help negotiate a contracts or business dispute that is not included in another category, or you are not sure what to choose."
+        }
+      ]
+    },
+    {
+      "parent": {
+        "title": "Estates, Wills, & Elder Law",
+        "definition": ""
+      },
+      "children": [
+        {
+          "title": "Adult Guardianship",
+          "definition": "You want a mediator to help you and one or more others negotiate an agreement on the care, property, and finances of an adult who cannot take care of themselves anymore."
+        },
+        {
+          "title": "Estate Issue",
+          "definition": "You want a mediator to help negotiate resolution of a dispute between you and other heirs/potential heirs over the estate of someone who died without a will, or whose will is being contested."
+        },
+        {
+          "title": "Other",
+          "definition": "You want a mediator to help negotiate resolution of a dispute concerning an estate or inheritance that is not included in another category, or you are not sure what to choose."
+        }
+      ]
+    },
+    {
+      "parent": {
+        "title": "Housing",
+        "definition": ""
+      },
+      "children": [
+        {
+          "title": "Landlord / Tenant",
+          "definition": "You want a mediator to help negotiate resolution of a dispute about unpaid rent, breach of a lease, or housing conditions in a rental property."
+        },
+        {
+          "title": "Mortgage / Foreclosure",
+          "definition": "You want a mediator to help negotiate resolution of a dispute regarding payment of a mortgage."
+        },
+        {
+          "title": "Other",
+          "definition": "You want a mediator to help negotiate a housing dispute that is not included in another category, or you are not sure what to choose."
+        }
+      ]
+    },
+    {
+      "parent": {
+        "title": "Employment",
+        "definition": ""
+      },
+      "children": [
+        {
+          "title": "Wages and Benefits",
+          "definition": "You want a mediator to help you negotiate an agreement with an employer concerning your wages or other employment benefits."
+        },
+        {
+          "title": "Wrongful Termination",
+          "definition": "You want a mediator to help negotiate resolution of a dispute concerning being unfairly fired from your job or not having your contract renewed."
+        },
+        {
+          "title": "Other",
+          "definition": "You want a mediator to help negotiate an employment issue that is not included in another category, or you are not sure what to choose."
+        }
+      ]
+    },
+    {
+      "parent": {
+        "title": "Other",
+        "definition": ""
+      },
+      "children": [
+        {
+          "title": "All Other Issues",
+          "definition": "You want a mediator to help negotiate any other issues"
+        }
+      ]
+    }
+  ]
